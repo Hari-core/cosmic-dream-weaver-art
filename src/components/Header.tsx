@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,10 +17,11 @@ export const Header = () => {
   const logoLetters = logoText.split('').map((char, index) => (
     <span
       key={index}
-      className="inline-block animate-[letterFloat_4s_ease-in-out_infinite]"
+      className="inline-block animate-[elegantLetterFloat_3.8s_ease-in-out_infinite]"
       style={{ 
-        animationDelay: `${index * 0.1}s`,
-        animationFillMode: 'both'
+        animationDelay: `${index * 0.11}s`,
+        animationFillMode: 'both',
+        transition: 'color 0.3s'
       }}
     >
       {char === ' ' ? '\u00A0' : char}
@@ -109,21 +109,37 @@ export const Header = () => {
         )}
       </div>
 
-      {/* Custom animation for individual letters */}
+      {/* Elegant, professional single-letter animation */}
       <style>
         {`
-          @keyframes letterFloat {
-            0%, 100% {
-              transform: translateY(0px) translateX(0px);
+          @keyframes elegantLetterFloat {
+            0% {
+              transform: translateY(0) scale(1) translateX(0);
+              opacity: 1;
             }
-            25% {
-              transform: translateY(-4px) translateX(1px);
+            10% {
+              opacity: 0.92;
+            }
+            20% {
+              transform: translateY(-4px) scale(1.03) translateX(3px);
+              opacity: 1;
+            }
+            35% {
+              transform: translateY(-8px) scale(1.04) translateX(0);
             }
             50% {
-              transform: translateY(-6px) translateX(-1px);
+              transform: translateY(-10px) scale(1.045) translateX(-3px);
             }
             75% {
-              transform: translateY(-2px) translateX(1px);
+              transform: translateY(-5px) scale(1.01) translateX(1.5px);
+              opacity: 0.97;
+            }
+            90% {
+              opacity: 1;
+            }
+            100% {
+              transform: translateY(0px) scale(1) translateX(0px);
+              opacity: 1;
             }
           }
         `}
