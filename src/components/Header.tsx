@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X, BarChart2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -123,7 +124,7 @@ export const Header = () => {
                 className={`relative px-4 py-2 rounded-lg transition-all duration-300 group font-poppins text-lg font-medium ${
                   activeSection === item.id
                     ? "bg-orange-500/20 text-orange-400 border border-orange-500/30"
-                    : "bg-gray-800/70 text-gray-200 hover:text-orange-400 hover:animate-bounce"
+                    : "bg-gray-800/70 text-gray-200 hover:text-orange-400 hover:-translate-y-[2px]"
                 }`}
                 style={{ fontFamily: 'Poppins, sans-serif' }}
               >
