@@ -27,8 +27,33 @@ const certifications = [
 
 export const Certifications = () => {
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-6">
+    <section className="py-20 relative overflow-hidden">
+      {/* Animated star background */}
+      <div className="absolute top-1/4 right-16 w-64 h-64 opacity-25">
+        <svg
+          viewBox="0 0 200 200"
+          className="w-full h-full animate-[float_6s_ease-in-out_infinite] transform rotate-12"
+        >
+          <defs>
+            <linearGradient id="star-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FFD700" />
+              <stop offset="100%" stopColor="#FF6347" />
+            </linearGradient>
+          </defs>
+          <polygon
+            points="100,20 115,70 165,70 125,100 140,150 100,120 60,150 75,100 35,70 85,70"
+            fill="url(#star-gradient)"
+            className="blur-md"
+          />
+        </svg>
+      </div>
+      
+      {/* Floating parallelogram */}
+      <div className="absolute bottom-1/3 left-20 w-72 h-40 opacity-20">
+        <div className="w-full h-full bg-gradient-to-tr from-orange-400 to-orange-600 transform skew-x-12 skew-y-3 blur-lg animate-[float_8s_ease-in-out_infinite_reverse]"></div>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent font-['Poppins']">
             Certifications
