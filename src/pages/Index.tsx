@@ -15,7 +15,8 @@ const Index = () => {
     <div className="min-h-screen bg-[#0D0D0D] text-white overflow-x-hidden">
       <Header />
       <Hero />
-      <AnimatedSeparator type="diagonal" />
+      {/* Changed from diagonal (which had 3 dots) to swipe */}
+      <AnimatedSeparator type="swipe" />
       <About />
       <AnimatedSeparator type="swipe" />
       <Projects />
@@ -34,3 +35,4 @@ const Index = () => {
 };
 
 export default Index;
+
