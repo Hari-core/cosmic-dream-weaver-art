@@ -21,6 +21,7 @@ export default {
 			fontFamily: {
 				'poppins': ['Poppins', 'sans-serif'],
 				'dancing': ['Dancing Script', 'cursive'],
+				'roboto': ['Roboto', 'sans-serif'],
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
