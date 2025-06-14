@@ -69,15 +69,17 @@ export const Hero = () => {
             </Button>
           </div>
 
-          {/* Arrow separated and lowered below the buttons */}
-          <button
-            onClick={handleArrowClick}
-            aria-label="Scroll to About"
-            className="flex items-center justify-center mt-10 p-2 rounded-full hover:bg-orange-500/20 transition-all duration-200 group"
-            style={{ outline: "none", border: "none" }}
-          >
-            <ChevronDown className="h-10 w-10 text-orange-400 animate-bounce group-hover:text-orange-500 transition-colors" />
-          </button>
+          {/* Center and lower the Arrow */}
+          <div className="flex justify-center mt-10">
+            <button
+              onClick={handleArrowClick}
+              aria-label="Scroll to About"
+              className="p-2 rounded-full hover:bg-orange-500/20 transition-all duration-200 group"
+              style={{ outline: "none", border: "none" }}
+            >
+              <ChevronDown className="h-10 w-10 text-orange-400 animate-bounce group-hover:text-orange-500 transition-colors" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
