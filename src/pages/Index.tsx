@@ -1,4 +1,3 @@
-
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -11,11 +10,27 @@ import { Footer } from "@/components/Footer";
 import { AnimatedSeparator } from "@/components/AnimatedSeparator";
 
 const WaveSeparator = () => (
-  <div className="w-full overflow-hidden bg-transparent" style={{ lineHeight: 0 }}>
+  <div className="w-full overflow-hidden bg-transparent relative" style={{ lineHeight: 0 }}>
     <svg viewBox="0 0 1600 70" className="block w-full h-12" preserveAspectRatio="none">
+      <defs>
+        <radialGradient id="waveGlow" cx="50%" cy="40%" r="40%">
+          <stop offset="0%" stopColor="#FFB347" stopOpacity="0.85" />
+          <stop offset="50%" stopColor="#FF9100" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#914916" stopOpacity="0" />
+        </radialGradient>
+      </defs>
       <path
         d="M0,20 Q450,40 850,25 T1600,20 L1600,70 L0,70 Z"
         fill="#914916"
+      />
+      {/* Glowing radial gradient overlay at center-top */}
+      <ellipse
+        cx="800"
+        cy="25"
+        rx="180"
+        ry="20"
+        fill="url(#waveGlow)"
+        opacity="0.85"
       />
     </svg>
   </div>
@@ -29,7 +44,7 @@ const Index = () => {
       {/* Changed from diagonal (which had 3 dots) to swipe */}
       <AnimatedSeparator type="swipe" />
       <About />
-      {/* Custom wave separator to match reference */}
+      {/* Custom wave separator to match reference and glow */}
       <WaveSeparator />
       <Projects />
       <AnimatedSeparator type="flowing" />
@@ -47,4 +62,3 @@ const Index = () => {
 };
 
 export default Index;
-
