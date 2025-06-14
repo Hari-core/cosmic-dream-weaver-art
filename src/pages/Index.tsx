@@ -1,4 +1,3 @@
-
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -89,7 +88,8 @@ const Index = () => {
         </div>
       </div>
 
-      <div className="relative z-10">
+      {/* Add top padding to prevent header overlay */}
+      <div className="relative z-10 pt-20 md:pt-24">
         <Header />
         <Hero />
         {/* Changed from diagonal (which had 3 dots) to swipe */}
