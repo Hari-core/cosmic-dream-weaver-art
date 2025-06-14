@@ -1,22 +1,26 @@
 
-import { MusicPlayer } from "@/components/MusicPlayer";
-import { AlbumGrid } from "@/components/AlbumGrid";
 import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { About } from "@/components/About";
+import { Projects } from "@/components/Projects";
+import { Skills } from "@/components/Skills";
+import { Certifications } from "@/components/Certifications";
+import { GitHubStats } from "@/components/GitHubStats";
+import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
+    <div className="min-h-screen bg-gray-900 text-white">
       <Header />
-      <div className="container mx-auto px-6 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <AlbumGrid />
-          </div>
-          <div className="lg:col-span-1">
-            <MusicPlayer />
-          </div>
-        </div>
-      </div>
+      <Hero />
+      <About />
+      <Projects />
+      <Skills />
+      <Certifications />
+      <GitHubStats />
+      <Contact />
+      <Footer />
     </div>
   );
 };
