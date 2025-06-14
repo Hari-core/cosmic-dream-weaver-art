@@ -60,18 +60,19 @@ export const About = () => {
             </div>
             
             <div className="relative animate-scale-in" style={{ width: 320, height: 320 }}>
-              {/* 3D Globe Aura Canvas */}
+              {/* 3D rotating Wireframe Globe Aura */}
               <WireframeGlobe
                 width={200}
                 height={200}
                 className="-z-0"
                 color="#FF9100"
               />
-              {/* Profile image with orange aura glow */}
+              {/* Profile image with neon orange aura glow */}
               <div
                 className="w-80 h-80 mx-auto bg-gradient-to-br from-orange-500/30 to-orange-600/30 rounded-full flex items-center justify-center hover:scale-105 transition-transform duration-300 relative z-10"
                 style={{
-                  boxShadow: "0 0 60px 8px #ff910088, 0 0 48px 10px #FFB34744",
+                  boxShadow: "0 0 45px 16px #FF910099, 0 0 64px 12px #FFB34766",
+                  filter: "drop-shadow(0 0 24px #FF910099)",
                 }}
               >
                 <div className="w-72 h-72 bg-[#0D0D0D] rounded-full flex items-center justify-center border border-orange-500/30 shadow-none">
