@@ -68,7 +68,7 @@ export const Projects = () => {
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent font-['Poppins']">
             Featured Projects
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Here are some of my recent projects that showcase my skills in data analysis and backend development.
           </p>
         </div>
@@ -77,7 +77,7 @@ export const Projects = () => {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className={`bg-card/50 border-orange-500/30 hover:border-orange-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 group 
+              className={`bg-gray-900/50 border-orange-500/30 hover:border-orange-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 group 
                           ${index % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right'} 
                           hover:border-2 hover:border-orange-500`}
               style={{ animationDelay: `${index * 0.1}s` }}
@@ -89,10 +89,10 @@ export const Projects = () => {
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </div>
-                <CardTitle className="text-card-foreground group-hover:text-orange-400 transition-colors font-['Poppins']">
+                <CardTitle className="text-white group-hover:text-orange-400 transition-colors font-['Poppins']">
                   {project.title}
                 </CardTitle>
-                <CardDescription className="text-muted-foreground">
+                <CardDescription className="text-gray-400">
                   {project.description}
                 </CardDescription>
               </CardHeader>
