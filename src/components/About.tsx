@@ -1,3 +1,4 @@
+
 import { Code, Database, Award, TrendingUp } from "lucide-react";
 import WireframeGlobe from "./WireframeGlobe";
 
@@ -60,16 +61,17 @@ export const About = () => {
             </div>
             
             <div className="relative animate-scale-in" style={{ width: 320, height: 320 }}>
-              {/* 3D rotating Wireframe Globe Aura */}
-              <WireframeGlobe
-                width={200}
-                height={200}
-                className="-z-0"
-                color="#FF9100"
-              />
-              {/* Profile image with neon orange aura glow */}
+              {/* 3D rotating Wireframe Globe Aura - positioned behind */}
+              <div className="absolute inset-0 z-0">
+                <WireframeGlobe
+                  width={200}
+                  height={200}
+                  color="#FF9100"
+                />
+              </div>
+              {/* Profile image with neon orange aura glow - positioned in front */}
               <div
-                className="w-80 h-80 mx-auto bg-gradient-to-br from-orange-500/30 to-orange-600/30 rounded-full flex items-center justify-center hover:scale-105 transition-transform duration-300 relative z-10"
+                className="relative z-10 w-80 h-80 mx-auto bg-gradient-to-br from-orange-500/30 to-orange-600/30 rounded-full flex items-center justify-center hover:scale-105 transition-transform duration-300"
                 style={{
                   boxShadow: "0 0 45px 16px #FF910099, 0 0 64px 12px #FFB34766",
                   filter: "drop-shadow(0 0 24px #FF910099)",
