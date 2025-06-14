@@ -1,3 +1,4 @@
+
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -85,10 +86,10 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Main content with Header fixed */}
+      {/* Ensure header is at the top level and not inside scrollable container */}
       <Header />
-      
-      {/* Scrollable content sections */}
+
+      {/* Main content with top padding equal to the header height (responsive) */}
       <div className="pt-20 md:pt-24">
         <section id="hero">
           <Hero />
@@ -117,8 +118,6 @@ const Index = () => {
         <section id="contact">
           <Contact />
         </section>
-        
-        {/* Footer is now part of scrollable content, not fixed */}
         <Footer />
       </div>
     </div>
@@ -126,3 +125,4 @@ const Index = () => {
 };
 
 export default Index;
+
