@@ -37,7 +37,7 @@ export const Footer = () => {
           
           <div className="border-t border-orange-500/30 pt-6">
             <p className="font-mono text-sm tracking-wider text-gray-500">
-              &gt; Handcrafted by Harikrishnan H // 2024
+              /* Handcrafted by Harikrishnan H */
             </p>
           </div>
         </div>
