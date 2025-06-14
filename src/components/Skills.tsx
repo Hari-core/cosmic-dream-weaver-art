@@ -1,28 +1,54 @@
 
 import { Database, Code, Wrench, Globe, Terminal } from "lucide-react";
+import { Progress } from "@/components/ui/progress";
+import React, { useEffect, useState } from "react";
 
+// Assign each card a unique color for the progress bar
 const skillCategories = [
   {
     title: "Data Tools",
     icon: <Database className="h-8 w-8 text-orange-400" />,
     skills: ["SQL", "Excel", "Power BI", "Python", "Pandas", "NumPy", "Matplotlib"],
-    color: "from-orange-500/20 to-orange-600/20"
+    color: "from-orange-500/20 to-orange-600/20",
+    progressBar: {
+      color: "bg-gradient-to-r from-orange-400 to-orange-600",
+      value: 90,
+    },
   },
   {
     title: "Backend",
-    icon: <Code className="h-8 w-8 text-orange-400" />,
+    icon: <Code className="h-8 w-8 text-teal-400" />,
     skills: ["Java", "Apache Kafka", "Docker"],
-    color: "from-orange-500/20 to-orange-600/20"
+    color: "from-teal-500/20 to-teal-600/20",
+    progressBar: {
+      color: "bg-gradient-to-r from-teal-400 to-teal-600",
+      value: 75,
+    },
   },
   {
     title: "Programming Languages",
-    icon: <Terminal className="h-8 w-8 text-orange-400" />,
+    icon: <Terminal className="h-8 w-8 text-purple-400" />,
     skills: ["C++", "HTML", "CSS"],
-    color: "from-orange-500/20 to-orange-600/20"
+    color: "from-purple-500/20 to-purple-600/20",
+    progressBar: {
+      color: "bg-gradient-to-r from-purple-400 to-purple-600",
+      value: 60,
+    },
   },
 ];
 
 export const Skills = () => {
+  const [progress, setProgress] = useState(skillCategories.map(() => 0));
+
+  useEffect(() => {
+    const timers = skillCategories.map((cat, i) =>
+      setTimeout(() => {
+        setProgress(prev => prev.map((v, idx) => (idx === i ? cat.progressBar.value : v)));
+      }, 550 + i * 320)
+    );
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
   return (
     <section id="skills" className="py-20 bg-gradient-to-b from-gray-900/20 to-[#0D0D0D] relative overflow-hidden">
       {/* Animated octagon background */}
@@ -64,7 +90,7 @@ export const Skills = () => {
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className={`bg-gradient-to-br ${category.color} p-6 rounded-xl border border-orange-500/30 hover:border-orange-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 group animate-fade-in`}
+              className={`bg-gradient-to-br ${category.color} p-6 rounded-xl border border-orange-500/30 hover:border-orange-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg group animate-fade-in`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-center mb-4">
@@ -72,6 +98,37 @@ export const Skills = () => {
                 <h3 className="text-xl font-semibold ml-3 text-white font-['Poppins'] group-hover:text-orange-400 transition-colors">
                   {category.title}
                 </h3>
+              </div>
+              {/* Animated Progress Bar */}
+              <div className="mb-5">
+                <Progress
+                  value={progress[index]}
+                  className="h-3 rounded-full bg-gray-700"
+                  style={{ transition: "width 1s cubic-bezier(.5,1.5,.2,1)", boxShadow: "0 2px 15px 0 rgba(0,0,0,.03)", overflow: "visible" }}
+                >
+                  {/* The shadcn Progress component internally handles the bar */}
+                </Progress>
+                <div className={`absolute left-0 top-0 h-3 transition-all duration-700`} />
+                <div className="text-xs text-gray-400 mt-1 text-right">
+                  {progress[index]}%
+                </div>
+                <style>
+                  {`
+                  /* Progress bar color override per card using ::after pattern */
+                  .skills-card-bar-${index} .bg-primary {
+                    background: unset!important;
+                  }
+                  .skills-card-bar-0 .bg-primary {
+                    background: linear-gradient(to right, #FFA726, #FF7043)!important;
+                  }
+                  .skills-card-bar-1 .bg-primary {
+                    background: linear-gradient(to right, #26ECCB, #0C9A93)!important;
+                  }
+                  .skills-card-bar-2 .bg-primary {
+                    background: linear-gradient(to right, #A78BFA, #C084FC)!important;
+                  }
+                  `}
+                </style>
               </div>
               
               <div className="space-y-2">
