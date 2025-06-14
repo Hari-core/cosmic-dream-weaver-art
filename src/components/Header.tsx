@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X, BarChart2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -34,6 +35,12 @@ export const Header = () => {
 
       if (window.scrollY < 10) {
         setActiveSection("hero");
+        return;
+      }
+
+      // Explicitly set 'contact' when at the bottom of the page
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
+        setActiveSection('contact');
         return;
       }
 

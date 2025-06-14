@@ -49,8 +49,8 @@ export const Hero = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               style={{
-                strokeDasharray: 150,
-                strokeDashoffset: 150,
+                strokeDasharray: 105,
+                strokeDashoffset: 105,
                 animation: 'draw-zigzag 2s ease-out forwards 0.5s',
               }}
             >
@@ -68,7 +68,7 @@ export const Hero = () => {
                 </marker>
               </defs>
               <path
-                d="M 10 90 L 30 70 L 50 80 L 70 60 L 90 50"
+                d="M 10 90 L 30 70 L 50 60 L 70 40 L 90 30"
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
@@ -76,6 +76,17 @@ export const Hero = () => {
                 markerEnd="url(#arrowhead)"
               />
             </svg>
+            <div className="absolute top-0 -right-36 w-36 h-36 hidden md:block opacity-60">
+                <div 
+                    className="absolute top-[20%] left-[20%] w-4 h-4 bg-orange-500 rounded-full animate-[float_4s_ease-in-out_infinite_1s]"
+                ></div>
+                <div 
+                    className="absolute top-[80%] left-[30%] w-6 h-6 bg-orange-500/80 rounded-sm animate-[float_6s_ease-in-out_infinite]"
+                ></div>
+                <div 
+                    className="absolute top-[50%] left-[80%] w-3 h-3 bg-orange-500 rounded-full animate-[float_5s_ease-in-out_infinite_0.5s]"
+                ></div>
+            </div>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-4 font-['Poppins']">
             Data Enthusiast | Java Developer | Tech Explorer
