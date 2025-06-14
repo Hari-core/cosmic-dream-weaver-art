@@ -4,7 +4,6 @@ import { About } from "@/components/About";
 import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
 import { Certifications } from "@/components/Certifications";
-import { GitHubStats } from "@/components/GitHubStats";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { AnimatedSeparator } from "@/components/AnimatedSeparator";
@@ -107,10 +106,6 @@ const Index = () => {
           <AnimatedSeparator type="brush" />
           <section id="certifications">
             <Certifications />
-          </section>
-          <AnimatedSeparator type="swipe" />
-          <section id="github">
-            <GitHubStats />
           </section>
           <AnimatedSeparator type="swipe" />
           <section id="contact">
