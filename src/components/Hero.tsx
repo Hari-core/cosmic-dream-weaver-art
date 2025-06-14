@@ -12,7 +12,7 @@ export const Hero = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0D0D0D] via-orange-900/10 to-[#0D0D0D] relative overflow-hidden">
-      {/* Animated blob background - Live SVG splash effect */}
+      {/* SVG blob background */}
       <div className="absolute top-1/4 left-10 w-96 h-96 opacity-30">
         <svg
           viewBox="0 0 200 200"
@@ -27,7 +27,6 @@ export const Hero = () => {
           </defs>
           <path
             fill="url(#blob-gradient)"
-            className="animate-[morph_10s_ease-in-out_infinite]"
             d="M40,-65C50,-55,55,-35,65,-20C75,-5,90,5,95,20C100,35,95,55,85,70C75,85,60,95,40,100C20,105,0,105,-25,95C-50,85,-75,65,-85,40C-95,15,-90,-15,-80,-40C-70,-65,-55,-85,-35,-90C-15,-95,0,-85,20,-75C40,-65,40,-65,40,-65Z"
           />
         </svg>
@@ -55,12 +54,26 @@ export const Hero = () => {
                 animation: 'draw-zigzag 2s ease-out forwards 0.5s',
               }}
             >
+              <defs>
+                <marker
+                  id="arrowhead"
+                  viewBox="0 0 10 10"
+                  refX="8"
+                  refY="5"
+                  markerWidth="6"
+                  markerHeight="6"
+                  orient="auto-start-reverse"
+                >
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
+                </marker>
+              </defs>
               <path
-                d="M 5 80 L 25 60 L 45 70 L 65 50 L 85 60"
+                d="M 10 90 L 30 70 L 50 80 L 70 60 L 90 70"
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                markerEnd="url(#arrowhead)"
               />
             </svg>
           </h1>
@@ -106,17 +119,6 @@ export const Hero = () => {
           to {
             stroke-dashoffset: 0;
           }
-        }
-        @keyframes morph {
-          0%, 100% {
-            d: path("M40,-65C50,-55,55,-35,65,-20C75,-5,90,5,95,20C100,35,95,55,85,70C75,85,60,95,40,100C20,105,0,105,-25,95C-50,85,-75,65,-85,40C-95,15,-90,-15,-80,-40C-70,-65,-55,-85,-35,-90C-15,-95,0,-85,20,-75C40,-65,40,-65,40,-65Z");
-          }
-          50% {
-            d: path("M45.5,-75.5C57.6,-66.9,65.1,-50.2,70.3,-34.5C75.5,-18.8,78.4,-4.1,75.6,9.5C72.8,23.1,64.3,35.6,54.1,47.1C43.9,58.6,32,69.1,18.2,75.1C4.4,81.1,-11.4,82.6,-26.8,78.5C-42.2,74.4,-57.2,64.7,-66.4,51.8C-75.6,38.9,-79,22.8,-78.7,7.2C-78.4,-8.4,-74.4,-19.5,-66.9,-29.4C-59.4,-39.3,-48.4,-48,-36.8,-56.3C-25.2,-64.6,-12.6,-72.5,2.1,-75.9C16.8,-79.3,33.5,-78.2,45.5,-75.5Z");
-          }
-        }
-        .animate-\\[morph_10s_ease-in-out_infinite\\] {
-          animation: morph 10s ease-in-out infinite;
         }
       `}</style>
     </section>
