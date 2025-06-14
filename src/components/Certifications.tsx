@@ -1,7 +1,7 @@
-
 import { Award, Calendar, CheckCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { AnimatedSplashBehindTitle } from "@/components/AnimatedSplashBehindTitle";
 
 const certifications = [
   {
@@ -30,8 +30,12 @@ export const Certifications = () => {
     <section className="py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent font-['Poppins']">
-            Certifications
+          <h2 className="text-4xl font-bold mb-4 font-['Poppins'] relative flex items-center justify-center">
+            <AnimatedSplashBehindTitle svgWidth={180} svgHeight={60}>
+              <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+                Certifications
+              </span>
+            </AnimatedSplashBehindTitle>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Continuous learning and professional development in data analysis and technology.

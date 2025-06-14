@@ -1,4 +1,6 @@
 
+import { AnimatedSplashBehindTitle } from "@/components/AnimatedSplashBehindTitle";
+
 export const GitHubStats = () => {
   const username = "hari-core";
   
@@ -6,8 +8,12 @@ export const GitHubStats = () => {
     <section className="py-20 bg-gradient-to-b from-[#0D0D0D] to-gray-900/20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent font-['Poppins']">
-            GitHub Activity
+          <h2 className="text-4xl font-bold mb-4 font-['Poppins'] relative flex items-center justify-center">
+            <AnimatedSplashBehindTitle svgWidth={220} svgHeight={65}>
+              <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+                GitHub Activity
+              </span>
+            </AnimatedSplashBehindTitle>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             My coding journey and contributions on GitHub.
