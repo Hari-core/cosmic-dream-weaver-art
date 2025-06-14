@@ -235,6 +235,10 @@ export default {
 						opacity: '1',
 						transform: 'translateY(0)'
 					}
+				},
+				'subtle-wobble': {
+				  '0%, 100%': { transform: 'rotate(-2deg) scale(1.03)' },
+				  '50%': { transform: 'rotate(2deg) scale(0.97)' },
 				}
 			},
 			animation: {
@@ -253,7 +257,8 @@ export default {
 				'flow': 'flow 3s ease-in-out infinite',
 				'brushStroke': 'brushStroke 2s ease-in-out infinite',
 				'pulseFlow': 'pulseFlow 2s ease-in-out infinite',
-				'fadeInUp': 'fadeInUp 0.6s ease-out'
+				'fadeInUp': 'fadeInUp 0.6s ease-out',
+				'subtle-wobble': 'subtle-wobble 5s ease-in-out infinite',
 			}
 		}
 	},
