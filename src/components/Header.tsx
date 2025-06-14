@@ -1,5 +1,4 @@
 
-
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -43,7 +42,7 @@ export const Header = () => {
                 />
               </svg>
             </span>
-            <span className="relative z-10 text-3xl md:text-4xl font-extrabold font-poppins text-orange-500"
+            <span className="relative z-10 text-3xl md:text-4xl font-extrabold font-poppins text-orange-500 animate-[logoFloat_4s_ease-in-out_infinite]"
               style={{ letterSpacing: '0.01em', lineHeight: 1 }}>
               Hari&apos;s Portfolio
             </span>
@@ -94,7 +93,26 @@ export const Header = () => {
           </nav>
         )}
       </div>
+
+      {/* Custom animation for logo text */}
+      <style>
+        {`
+          @keyframes logoFloat {
+            0%, 100% {
+              transform: translateY(0px) translateX(0px);
+            }
+            25% {
+              transform: translateY(-3px) translateX(1px);
+            }
+            50% {
+              transform: translateY(-5px) translateX(-1px);
+            }
+            75% {
+              transform: translateY(-2px) translateX(1px);
+            }
+          }
+        `}
+      </style>
     </header>
   );
 };
-
