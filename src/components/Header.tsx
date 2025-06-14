@@ -129,7 +129,7 @@ export const Header = () => {
                 style={{ fontFamily: 'Poppins, sans-serif' }}
               >
                 {item.name}
-                <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-orange-400 transition-all duration-300 rounded-full ${
+                <span className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-orange-400 transition-all duration-300 rounded-lg ${
                   activeSection === item.id ? "w-3/4" : "w-0 group-hover:w-3/4"
                 }`}></span>
               </a>
