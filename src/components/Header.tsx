@@ -22,12 +22,12 @@ export const Header = () => {
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-2">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 hover:text-orange-400 transition-all duration-300 relative group font-['Poppins']"
+                className="relative px-4 py-2 bg-gray-800/50 rounded-lg text-gray-300 hover:text-orange-400 transition-all duration-300 group font-['Poppins'] hover:animate-[shake_0.5s_ease-in-out] border border-transparent hover:border-orange-500/30"
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300"></span>
@@ -54,7 +54,7 @@ export const Header = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-300 hover:text-orange-400 transition-colors duration-300 py-2 font-['Poppins']"
+                  className="text-gray-300 hover:text-orange-400 transition-colors duration-300 py-2 font-['Poppins'] px-4 bg-gray-800/30 rounded-lg hover:bg-orange-500/20"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}

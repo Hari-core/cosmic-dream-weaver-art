@@ -1,4 +1,33 @@
 
+import { Code, Database, Award, TrendingUp } from "lucide-react";
+
+const stats = [
+  {
+    icon: <Code className="h-8 w-8 text-orange-400" />,
+    value: "4+",
+    label: "Projects",
+    description: "Built with passion"
+  },
+  {
+    icon: <Database className="h-8 w-8 text-orange-400" />,
+    value: "8+",
+    label: "Technologies",
+    description: "Mastered & counting"
+  },
+  {
+    icon: <Award className="h-8 w-8 text-orange-400" />,
+    value: "3+",
+    label: "Certifications",
+    description: "Achieved & ongoing"
+  },
+  {
+    icon: <TrendingUp className="h-8 w-8 text-orange-400" />,
+    value: "100%",
+    label: "Dedication",
+    description: "To continuous learning"
+  }
+];
+
 export const About = () => {
   return (
     <section id="about" className="py-20 bg-gradient-to-b from-[#0D0D0D] to-gray-900/20">
@@ -8,7 +37,11 @@ export const About = () => {
             About Me
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <p className="text-xl text-orange-400 mb-12 italic animate-fade-in">
+            "An explorer of tech with a passion for meaningful problem solving."
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="space-y-6 text-left animate-fade-in">
               <p className="text-lg text-gray-300 leading-relaxed">
                 I'm a passionate Data Analyst and Java Developer with a unique background in electronics. 
@@ -33,6 +66,32 @@ export const About = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Animated Stats Cards */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((stat, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 p-6 rounded-xl border border-orange-500/30 hover:border-orange-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 animate-slide-up group"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className="mb-3 group-hover:scale-110 transition-transform duration-300">
+                    {stat.icon}
+                  </div>
+                  <div className="text-2xl font-bold text-white mb-1 group-hover:text-orange-400 transition-colors">
+                    {stat.value}
+                  </div>
+                  <div className="text-orange-400 font-semibold mb-2">
+                    {stat.label}
+                  </div>
+                  <div className="text-xs text-gray-400">
+                    {stat.description}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
