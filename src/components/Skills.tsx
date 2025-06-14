@@ -1,54 +1,69 @@
 
-import { Database, Code, Wrench, Globe, Terminal } from "lucide-react";
-import { Progress } from "@/components/ui/progress";
-import React, { useEffect, useState } from "react";
+import {
+  Database,
+  Code,
+  Wrench,
+  Globe,
+  Terminal,
+  BarChart2,
+  Table2,
+  FileCode2,
+  FileSpreadsheet,
+  Server,
+  Docker,
+  Java,
+  Python,
+  FileJson2,
+} from "lucide-react";
+import React from "react";
 
-// Assign each card a unique color for the progress bar
+// Map each skill to a Lucide icon where available
+const skillIconMap: Record<string, React.ReactNode> = {
+  "SQL": <Database className="h-5 w-5 text-orange-400 animate-float-icon" />,
+  "Excel": <FileSpreadsheet className="h-5 w-5 text-green-400 animate-float-icon" />,
+  "Power BI": <BarChart2 className="h-5 w-5 text-yellow-400 animate-float-icon" />,
+  "Python": <Python className="h-5 w-5 text-blue-400 animate-float-icon" />,
+  "Pandas": <FileSpreadsheet className="h-5 w-5 text-purple-400 animate-float-icon" />,
+  "NumPy": <FileSpreadsheet className="h-5 w-5 text-indigo-400 animate-float-icon" />,
+  "Matplotlib": <BarChart2 className="h-5 w-5 text-pink-400 animate-float-icon" />,
+  "Java": <Java className="h-5 w-5 text-red-400 animate-float-icon" />,
+  "Apache Kafka": <Server className="h-5 w-5 text-teal-400 animate-float-icon" />,
+  "Docker": <Docker className="h-5 w-5 text-blue-500 animate-float-icon" />,
+  "C++": <FileCode2 className="h-5 w-5 text-blue-300 animate-float-icon" />,
+  "HTML": <FileCode2 className="h-5 w-5 text-orange-500 animate-float-icon" />,
+  "CSS": <FileCode2 className="h-5 w-5 text-blue-500 animate-float-icon" />,
+};
+
 const skillCategories = [
   {
     title: "Data Tools",
     icon: <Database className="h-8 w-8 text-orange-400" />,
-    skills: ["SQL", "Excel", "Power BI", "Python", "Pandas", "NumPy", "Matplotlib"],
+    skills: [
+      "SQL",
+      "Excel",
+      "Power BI",
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+    ],
     color: "from-orange-500/20 to-orange-600/20",
-    progressBar: {
-      color: "bg-gradient-to-r from-orange-400 to-orange-600",
-      value: 90,
-    },
   },
   {
     title: "Backend",
     icon: <Code className="h-8 w-8 text-teal-400" />,
     skills: ["Java", "Apache Kafka", "Docker"],
     color: "from-teal-500/20 to-teal-600/20",
-    progressBar: {
-      color: "bg-gradient-to-r from-teal-400 to-teal-600",
-      value: 75,
-    },
   },
   {
     title: "Programming Languages",
     icon: <Terminal className="h-8 w-8 text-purple-400" />,
     skills: ["C++", "HTML", "CSS"],
     color: "from-purple-500/20 to-purple-600/20",
-    progressBar: {
-      color: "bg-gradient-to-r from-purple-400 to-purple-600",
-      value: 60,
-    },
   },
 ];
 
 export const Skills = () => {
-  const [progress, setProgress] = useState(skillCategories.map(() => 0));
-
-  useEffect(() => {
-    const timers = skillCategories.map((cat, i) =>
-      setTimeout(() => {
-        setProgress(prev => prev.map((v, idx) => (idx === i ? cat.progressBar.value : v)));
-      }, 550 + i * 320)
-    );
-    return () => timers.forEach(clearTimeout);
-  }, []);
-
   return (
     <section id="skills" className="py-20 bg-gradient-to-b from-gray-900/20 to-[#0D0D0D] relative overflow-hidden">
       {/* Animated octagon background */}
@@ -70,7 +85,6 @@ export const Skills = () => {
           />
         </svg>
       </div>
-      
       {/* Floating ellipse */}
       <div className="absolute bottom-1/4 left-16 w-80 h-48 opacity-25">
         <div className="w-full h-full bg-gradient-to-r from-orange-500 to-orange-400 rounded-full transform -rotate-12 blur-xl animate-[float_6s_ease-in-out_infinite_reverse]"></div>
@@ -99,45 +113,16 @@ export const Skills = () => {
                   {category.title}
                 </h3>
               </div>
-              {/* Animated Progress Bar */}
-              <div className="mb-5">
-                <Progress
-                  value={progress[index]}
-                  className="h-3 rounded-full bg-gray-700"
-                  style={{ transition: "width 1s cubic-bezier(.5,1.5,.2,1)", boxShadow: "0 2px 15px 0 rgba(0,0,0,.03)", overflow: "visible" }}
-                >
-                  {/* The shadcn Progress component internally handles the bar */}
-                </Progress>
-                <div className={`absolute left-0 top-0 h-3 transition-all duration-700`} />
-                <div className="text-xs text-gray-400 mt-1 text-right">
-                  {progress[index]}%
-                </div>
-                <style>
-                  {`
-                  /* Progress bar color override per card using ::after pattern */
-                  .skills-card-bar-${index} .bg-primary {
-                    background: unset!important;
-                  }
-                  .skills-card-bar-0 .bg-primary {
-                    background: linear-gradient(to right, #FFA726, #FF7043)!important;
-                  }
-                  .skills-card-bar-1 .bg-primary {
-                    background: linear-gradient(to right, #26ECCB, #0C9A93)!important;
-                  }
-                  .skills-card-bar-2 .bg-primary {
-                    background: linear-gradient(to right, #A78BFA, #C084FC)!important;
-                  }
-                  `}
-                </style>
-              </div>
-              
               <div className="space-y-2">
                 {category.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
-                    className="bg-[#0D0D0D]/50 px-3 py-2 rounded-lg text-gray-300 text-sm hover:bg-orange-500/20 hover:text-orange-300 transition-all duration-200 hover:shadow-sm"
+                    className="flex items-center space-x-3 bg-[#0D0D0D]/50 px-3 py-2 rounded-lg text-gray-300 text-sm hover:bg-orange-500/20 hover:text-orange-300 transition-all duration-200 hover:shadow-sm"
                   >
-                    {skill}
+                    {skillIconMap[skill] || (
+                      <Wrench className="h-5 w-5 text-gray-400 animate-float-icon" />
+                    )}
+                    <span>{skill}</span>
                   </div>
                 ))}
               </div>
@@ -145,6 +130,19 @@ export const Skills = () => {
           ))}
         </div>
       </div>
+      <style>
+        {`
+        @keyframes float-icon {
+          0% { transform: translateY(12px); opacity: 0; }
+          40% { opacity: 1; }
+          100% { transform: translateY(0); opacity: 1; }
+        }
+        .animate-float-icon {
+          animation: float-icon 0.9s cubic-bezier(.44,1.2,.39,1) both;
+          /* Staggered by index dynamically will require inline or styled-jsx/Tailwind plugin, here same for all */
+        }
+        `}
+      </style>
     </section>
   );
 };
