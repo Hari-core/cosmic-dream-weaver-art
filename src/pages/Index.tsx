@@ -1,3 +1,4 @@
+
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -9,6 +10,17 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { AnimatedSeparator } from "@/components/AnimatedSeparator";
 
+const WaveSeparator = () => (
+  <div className="w-full overflow-hidden bg-transparent" style={{ lineHeight: 0 }}>
+    <svg viewBox="0 0 1600 70" className="block w-full h-12" preserveAspectRatio="none">
+      <path
+        d="M0,20 Q450,40 850,25 T1600,20 L1600,70 L0,70 Z"
+        fill="#914916"
+      />
+    </svg>
+  </div>
+);
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-[#0D0D0D] text-white overflow-x-hidden">
@@ -17,8 +29,8 @@ const Index = () => {
       {/* Changed from diagonal (which had 3 dots) to swipe */}
       <AnimatedSeparator type="swipe" />
       <About />
-      {/* Use brush animation before Projects section for wavy effect */}
-      <AnimatedSeparator type="brush" />
+      {/* Custom wave separator to match reference */}
+      <WaveSeparator />
       <Projects />
       <AnimatedSeparator type="flowing" />
       <Skills />
@@ -35,3 +47,4 @@ const Index = () => {
 };
 
 export default Index;
+
