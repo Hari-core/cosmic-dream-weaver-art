@@ -15,17 +15,17 @@ const Index = () => {
     <div className="min-h-screen bg-[#0D0D0D] text-white overflow-x-hidden">
       <Header />
       <Hero />
-      <AnimatedSeparator type="dots" />
+      <AnimatedSeparator type="diagonal" />
       <About />
-      <AnimatedSeparator type="waves" />
+      <AnimatedSeparator type="swipe" />
       <Projects />
-      <AnimatedSeparator type="rotating" />
+      <AnimatedSeparator type="flowing" />
       <Skills />
-      <AnimatedSeparator type="morphing" />
+      <AnimatedSeparator type="brush" />
       <Certifications />
-      <AnimatedSeparator type="lines" />
+      <AnimatedSeparator type="pulse" />
       <GitHubStats />
-      <AnimatedSeparator type="dots" />
+      <AnimatedSeparator type="swipe" />
       <Contact />
       <Footer />
     </div>

@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -150,6 +149,92 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0px)' },
 					'50%': { transform: 'translateY(-20px)' }
+				},
+				'morph': {
+					'0%, 100%': {
+						borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%'
+					},
+					'50%': {
+						borderRadius: '30% 60% 70% 40%/50% 60% 30% 60%'
+					}
+				},
+				'swipe': {
+					'0%': {
+						transform: 'translateX(-100%)',
+						opacity: '0'
+					},
+					'50%': {
+						opacity: '1'
+					},
+					'100%': {
+						transform: 'translateX(100%)',
+						opacity: '0'
+					}
+				},
+				'diagonalGrow': {
+					'0%': {
+						width: '0%',
+						opacity: '0'
+					},
+					'50%': {
+						opacity: '1'
+					},
+					'100%': {
+						width: '100%',
+						opacity: '0'
+					}
+				},
+				'flow': {
+					'0%': {
+						transform: 'translateX(-100px)',
+						opacity: '0'
+					},
+					'20%': {
+						opacity: '1'
+					},
+					'80%': {
+						opacity: '1'
+					},
+					'100%': {
+						transform: 'translateX(calc(100vw + 100px))',
+						opacity: '0'
+					}
+				},
+				'brushStroke': {
+					'0%': {
+						strokeDashoffset: '1200'
+					},
+					'100%': {
+						strokeDashoffset: '0'
+					}
+				},
+				'pulseFlow': {
+					'0%': {
+						transform: 'translateX(-100%) scaleX(0)',
+						opacity: '0'
+					},
+					'20%': {
+						transform: 'translateX(-50%) scaleX(1)',
+						opacity: '1'
+					},
+					'80%': {
+						transform: 'translateX(50%) scaleX(1)',
+						opacity: '1'
+					},
+					'100%': {
+						transform: 'translateX(100%) scaleX(0)',
+						opacity: '0'
+					}
+				},
+				'fadeInUp': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(30px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
 				}
 			},
 			animation: {
@@ -161,7 +246,14 @@ export default {
 				'slide-in-right': 'slide-in-right 0.6s ease-out',
 				'slide-in-left': 'slide-in-left 0.6s ease-out',
 				'shake': 'shake 0.5s ease-in-out',
-				'float': 'float 6s ease-in-out infinite'
+				'float': 'float 6s ease-in-out infinite',
+				'morph': 'morph 10s ease-in-out infinite',
+				'swipe': 'swipe 2s ease-in-out infinite',
+				'diagonalGrow': 'diagonalGrow 1.5s ease-out infinite',
+				'flow': 'flow 3s ease-in-out infinite',
+				'brushStroke': 'brushStroke 2s ease-in-out infinite',
+				'pulseFlow': 'pulseFlow 2s ease-in-out infinite',
+				'fadeInUp': 'fadeInUp 0.6s ease-out'
 			}
 		}
 	},

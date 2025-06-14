@@ -18,7 +18,7 @@ export const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent font-['Poppins']">
-            Harikrishnan H
+            Hari's Portfolio
           </div>
           
           {/* Desktop Navigation */}
@@ -27,7 +27,7 @@ export const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="relative px-4 py-2 bg-gray-800/50 rounded-lg text-gray-300 hover:text-orange-400 transition-all duration-300 group font-['Poppins'] hover:animate-[shake_0.5s_ease-in-out] border border-transparent hover:border-orange-500/30"
+                className="relative px-4 py-2 bg-gray-800/50 rounded-lg text-gray-300 hover:text-orange-400 transition-all duration-300 group font-['Poppins'] hover:animate-[bounce_0.6s_ease-in-out] border border-transparent hover:border-orange-500/30"
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300"></span>

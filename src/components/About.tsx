@@ -38,7 +38,7 @@ export const About = () => {
           </h2>
           
           <p className="text-xl text-orange-400 mb-12 italic animate-fade-in">
-            "An explorer of tech with a passion for meaningful problem solving."
+            "Detail-driven and growth-fueled, solving real-world problems one dataset at a time."
           </p>
           
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
@@ -73,7 +73,7 @@ export const About = () => {
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 p-6 rounded-xl border border-orange-500/30 hover:border-orange-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 animate-slide-up group"
+                className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 p-6 rounded-xl border border-orange-500/30 hover:border-orange-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 animate-[fadeInUp_0.6s_ease-out] group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex flex-col items-center text-center">
