@@ -1,6 +1,5 @@
-
 import { useState } from "react";
-import { Menu, X, ArrowDown } from "lucide-react";
+import { Menu, X, BarChart2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Header = () => {
@@ -56,8 +55,8 @@ export const Header = () => {
                 />
               </svg>
             </span>
-            {/* Add a reasonable icon next to the logo */}
-            <ArrowDown className="h-8 w-8 text-orange-400 mr-2 animate-bounce-slow" />
+            {/* Relevant data analysis icon next to the logo */}
+            <BarChart2 className="h-8 w-8 text-orange-400 mr-2 animate-bounce-slow" />
             <span className="relative z-10 text-3xl md:text-4xl font-extrabold font-poppins text-orange-500"
               style={{ letterSpacing: '0.01em', lineHeight: 1 }}>
               {logoLetters}
@@ -154,4 +153,3 @@ export const Header = () => {
     </header>
   );
 };
-
