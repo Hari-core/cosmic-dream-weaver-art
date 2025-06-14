@@ -31,34 +31,24 @@ export const Header = () => {
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + HEADER_HEIGHT + 1;
-      let found = false;
 
-      for (let i = 0; i < sections.length; i++) {
-        const sectionId = sections[i];
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(sectionId);
-            found = true;
-            break;
-          }
-        }
-      }
-
-      // Fix: At the very top, always highlight HERO!
       if (window.scrollY < 10) {
         setActiveSection("hero");
         return;
       }
 
-      // If not found, default to last section
-      if (!found) {
-        setActiveSection(sections[sections.length - 1]);
+      let currentSection = 'hero';
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          if (element.offsetTop <= scrollPosition) {
+            currentSection = sectionId;
+          } else {
+            break;
+          }
+        }
       }
+      setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });

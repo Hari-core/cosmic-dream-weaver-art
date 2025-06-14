@@ -62,13 +62,13 @@ export const Hero = () => {
                   refY="5"
                   markerWidth="6"
                   markerHeight="6"
-                  orient="auto-start-reverse"
+                  orient="auto"
                 >
                   <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
                 </marker>
               </defs>
               <path
-                d="M 10 90 L 30 70 L 50 80 L 70 60 L 90 70"
+                d="M 10 90 L 30 70 L 50 80 L 70 60 L 90 50"
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
