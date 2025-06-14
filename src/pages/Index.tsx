@@ -74,50 +74,50 @@ const WaveSeparator = () => (
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-[#0D0D0D] text-white overflow-x-hidden relative">
-      {/* Sticky header: absolutely at the page top */}
+    <div className="bg-[#0D0D0D] text-white">
       <Header />
-
-      {/* Background shapes below header */}
-      <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 opacity-5">
-          <div className="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 rounded-full blur-3xl animate-[float_15s_ease-in-out_infinite]"></div>
+      <div className="min-h-screen overflow-x-hidden relative">
+        {/* Background shapes below header */}
+        <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 opacity-5">
+            <div className="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 rounded-full blur-3xl animate-[float_15s_ease-in-out_infinite]"></div>
+          </div>
+          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 opacity-5">
+            <div className="w-full h-full bg-gradient-to-tl from-orange-500 to-orange-400 transform rotate-45 blur-3xl animate-[float_12s_ease-in-out_infinite_reverse]"></div>
+          </div>
         </div>
-        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 opacity-5">
-          <div className="w-full h-full bg-gradient-to-tl from-orange-500 to-orange-400 transform rotate-45 blur-3xl animate-[float_12s_ease-in-out_infinite_reverse]"></div>
-        </div>
-      </div>
 
-      {/* MAIN CONTENT, offset with header height so nothing is hidden under header */}
-      <div className="pt-20 md:pt-24">
-        <section id="hero">
-          <Hero />
-        </section>
-        <AnimatedSeparator type="swipe" />
-        <section id="about">
-          <About />
-        </section>
-        <WaveSeparator />
-        <section id="projects">
-          <Projects />
-        </section>
-        <AnimatedSeparator type="flowing" />
-        <section id="skills">
-          <Skills />
-        </section>
-        <AnimatedSeparator type="brush" />
-        <section id="certifications">
-          <Certifications />
-        </section>
-        <AnimatedSeparator type="swipe" />
-        <section id="github">
-          <GitHubStats />
-        </section>
-        <AnimatedSeparator type="swipe" />
-        <section id="contact">
-          <Contact />
-        </section>
-        <Footer />
+        {/* MAIN CONTENT, offset with header height so nothing is hidden under header */}
+        <div className="pt-20 md:pt-24">
+          <section id="hero">
+            <Hero />
+          </section>
+          <AnimatedSeparator type="swipe" />
+          <section id="about">
+            <About />
+          </section>
+          <WaveSeparator />
+          <section id="projects">
+            <Projects />
+          </section>
+          <AnimatedSeparator type="flowing" />
+          <section id="skills">
+            <Skills />
+          </section>
+          <AnimatedSeparator type="brush" />
+          <section id="certifications">
+            <Certifications />
+          </section>
+          <AnimatedSeparator type="swipe" />
+          <section id="github">
+            <GitHubStats />
+          </section>
+          <AnimatedSeparator type="swipe" />
+          <section id="contact">
+            <Contact />
+          </section>
+          <Footer />
+        </div>
       </div>
     </div>
   );

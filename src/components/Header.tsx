@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X, BarChart2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -82,7 +83,7 @@ export const Header = () => {
   ));
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-[#0D0D0D]/95 backdrop-blur-sm border-b border-orange-500/30 z-50 transition-all duration-300 relative overflow-hidden shadow-lg">
+    <header className="fixed top-0 left-0 w-full bg-[#0D0D0D]/95 backdrop-blur-sm border-b border-orange-500/30 z-50 transition-all duration-300 overflow-hidden shadow-lg">
       {/* Animated background shapes */}
       <div className="absolute top-0 right-1/4 w-32 h-32 opacity-10">
         <div className="w-full h-full bg-gradient-to-br from-orange-400 to-orange-500 rounded-full blur-lg animate-[float_4s_ease-in-out_infinite]"></div>
