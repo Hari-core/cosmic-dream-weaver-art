@@ -1,17 +1,42 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, BarChart2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
 
   const navItems = [
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Contact", href: "#contact" },
+    { name: "About", href: "#about", id: "about" },
+    { name: "Projects", href: "#projects", id: "projects" },
+    { name: "Skills", href: "#skills", id: "skills" },
+    { name: "Contact", href: "#contact", id: "contact" },
   ];
+
+  // Track active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["hero", "about", "projects", "skills", "certifications", "github", "contact"];
+      const scrollPosition = window.scrollY + 100; // Offset for header
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Split the text into individual characters for animation
   const logoText = "Hari's Portfolio";
@@ -30,7 +55,6 @@ export const Header = () => {
   ));
 
   return (
-    // Use fixed instead of sticky, and add shadow for sticky nav "feel"
     <header className="fixed top-0 left-0 w-full bg-[#0D0D0D]/95 backdrop-blur-sm border-b border-orange-500/30 z-50 transition-all duration-300 relative overflow-hidden shadow-lg">
       {/* Animated background shapes */}
       <div className="absolute top-0 right-1/4 w-32 h-32 opacity-10">
@@ -43,7 +67,6 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo and splash, FIRM LEFT */}
           <div className="relative flex items-center">
-            {/* Splash directly behind and sized to logo/text */}
             <span className="absolute left-0 top-1/2 -translate-y-1/2 -z-10">
               <svg
                 viewBox="0 0 140 56"
@@ -57,7 +80,6 @@ export const Header = () => {
                 />
               </svg>
             </span>
-            {/* Data analysis icon next to the logo */}
             <BarChart2 className="h-8 w-8 text-orange-400 mr-2 animate-bounce-slow" />
             <span
               className="relative z-10 text-3xl md:text-4xl font-extrabold font-dancing text-orange-500"
@@ -73,11 +95,17 @@ export const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="relative px-4 py-2 bg-gray-800/70 rounded-lg text-gray-200 hover:text-orange-400 transition-all duration-300 group font-poppins text-lg font-medium hover:animate-bounce"
+                className={`relative px-4 py-2 rounded-lg transition-all duration-300 group font-poppins text-lg font-medium ${
+                  activeSection === item.id
+                    ? "bg-orange-500/20 text-orange-400 border border-orange-500/30"
+                    : "bg-gray-800/70 text-gray-200 hover:text-orange-400 hover:animate-bounce"
+                }`}
                 style={{ fontFamily: 'Poppins, sans-serif' }}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300"></span>
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-orange-400 transition-all duration-300 ${
+                  activeSection === item.id ? "w-full" : "w-0 group-hover:w-full"
+                }`}></span>
               </a>
             ))}
           </nav>
@@ -102,7 +130,11 @@ export const Header = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-200 hover:text-orange-400 transition-colors duration-300 py-2 font-poppins px-4 bg-gray-800/70 rounded-lg hover:bg-orange-500/20 text-lg font-medium"
+                  className={`transition-colors duration-300 py-2 font-poppins px-4 rounded-lg text-lg font-medium ${
+                    activeSection === item.id
+                      ? "text-orange-400 bg-orange-500/20 border border-orange-500/30"
+                      : "text-gray-200 hover:text-orange-400 bg-gray-800/70 hover:bg-orange-500/20"
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -112,7 +144,7 @@ export const Header = () => {
           </nav>
         )}
       </div>
-      {/* Elegant, professional single-letter animation */}
+      
       <style>
         {`
           @keyframes elegantLetterFloat {

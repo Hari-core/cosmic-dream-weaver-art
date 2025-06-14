@@ -85,27 +85,42 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Fixed sticky content: from logo/header to Contact */}
-      <div className="fixed inset-0 z-10 flex flex-col overflow-hidden">
-        <Header />
-        <div className="flex-1 min-h-0 overflow-y-auto bg-transparent pt-20 md:pt-24 p-0">
+      {/* Main content with Header fixed */}
+      <Header />
+      
+      {/* Scrollable content sections */}
+      <div className="pt-20 md:pt-24">
+        <section id="hero">
           <Hero />
-          <AnimatedSeparator type="swipe" />
+        </section>
+        <AnimatedSeparator type="swipe" />
+        <section id="about">
           <About />
-          <WaveSeparator />
+        </section>
+        <WaveSeparator />
+        <section id="projects">
           <Projects />
-          <AnimatedSeparator type="flowing" />
+        </section>
+        <AnimatedSeparator type="flowing" />
+        <section id="skills">
           <Skills />
-          <AnimatedSeparator type="brush" />
+        </section>
+        <AnimatedSeparator type="brush" />
+        <section id="certifications">
           <Certifications />
-          <AnimatedSeparator type="swipe" />
+        </section>
+        <AnimatedSeparator type="swipe" />
+        <section id="github">
           <GitHubStats />
-          <AnimatedSeparator type="swipe" />
+        </section>
+        <AnimatedSeparator type="swipe" />
+        <section id="contact">
           <Contact />
-        </div>
+        </section>
+        
+        {/* Footer is now part of scrollable content, not fixed */}
+        <Footer />
       </div>
-      {/* Footer is rendered AFTER the fixed main content, so it is not locked/sticky */}
-      <Footer />
     </div>
   );
 };
