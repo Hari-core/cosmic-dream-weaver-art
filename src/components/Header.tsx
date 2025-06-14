@@ -13,6 +13,21 @@ export const Header = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  // Split the text into individual characters for animation
+  const logoText = "Hari's Portfolio";
+  const logoLetters = logoText.split('').map((char, index) => (
+    <span
+      key={index}
+      className="inline-block animate-[letterFloat_4s_ease-in-out_infinite]"
+      style={{ 
+        animationDelay: `${index * 0.1}s`,
+        animationFillMode: 'both'
+      }}
+    >
+      {char === ' ' ? '\u00A0' : char}
+    </span>
+  ));
+
   return (
     <header className="fixed top-0 w-full bg-[#0D0D0D]/95 backdrop-blur-sm border-b border-orange-500/30 z-50 transition-all duration-300 relative overflow-hidden">
       {/* Animated background shapes */}
@@ -42,9 +57,9 @@ export const Header = () => {
                 />
               </svg>
             </span>
-            <span className="relative z-10 text-3xl md:text-4xl font-extrabold font-poppins text-orange-500 animate-[logoFloat_4s_ease-in-out_infinite]"
+            <span className="relative z-10 text-3xl md:text-4xl font-extrabold font-poppins text-orange-500"
               style={{ letterSpacing: '0.01em', lineHeight: 1 }}>
-              Hari&apos;s Portfolio
+              {logoLetters}
             </span>
           </div>
           
@@ -94,18 +109,18 @@ export const Header = () => {
         )}
       </div>
 
-      {/* Custom animation for logo text */}
+      {/* Custom animation for individual letters */}
       <style>
         {`
-          @keyframes logoFloat {
+          @keyframes letterFloat {
             0%, 100% {
               transform: translateY(0px) translateX(0px);
             }
             25% {
-              transform: translateY(-3px) translateX(1px);
+              transform: translateY(-4px) translateX(1px);
             }
             50% {
-              transform: translateY(-5px) translateX(-1px);
+              transform: translateY(-6px) translateX(-1px);
             }
             75% {
               transform: translateY(-2px) translateX(1px);
