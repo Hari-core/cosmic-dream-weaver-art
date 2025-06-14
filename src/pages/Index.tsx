@@ -1,3 +1,4 @@
+
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -32,7 +33,6 @@ const WaveSeparator = () => (
         d="M0,20 Q450,40 850,25 T1600,20 L1600,70 L0,70 Z"
         fill="#914916"
       />
-      {/* Animated moving/breathing glowy ellipse */}
       <ellipse
         className="wave-glow-ellipse pointer-events-none"
         cx="800"
@@ -43,7 +43,6 @@ const WaveSeparator = () => (
         style={{ opacity: 0.8 }}
       />
     </svg>
-    {/* Custom animation styles using Tailwind's layer */}
     <style>
       {`
         @keyframes wave-glow-move {
@@ -88,29 +87,31 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Add top padding to prevent header overlay */}
-      <div className="relative z-10 pt-20 md:pt-24">
+      {/* Fixed sticky content: from logo/header to Contact */}
+      <div className="fixed inset-0 z-10 flex flex-col overflow-hidden">
+        {/* Header is already fixed/sticky, so only add it here for stacking context */}
         <Header />
-        <Hero />
-        {/* Changed from diagonal (which had 3 dots) to swipe */}
-        <AnimatedSeparator type="swipe" />
-        <About />
-        {/* Custom wave separator to match reference and glow */}
-        <WaveSeparator />
-        <Projects />
-        <AnimatedSeparator type="flowing" />
-        <Skills />
-        <AnimatedSeparator type="brush" />
-        <Certifications />
-        {/* Changed type from "pulse" to "swipe" */}
-        <AnimatedSeparator type="swipe" />
-        <GitHubStats />
-        <AnimatedSeparator type="swipe" />
-        <Contact />
-        <Footer />
+        <div className="flex-1 min-h-0 overflow-y-auto bg-transparent pt-20 md:pt-24 p-0">
+          <Hero />
+          <AnimatedSeparator type="swipe" />
+          <About />
+          <WaveSeparator />
+          <Projects />
+          <AnimatedSeparator type="flowing" />
+          <Skills />
+          <AnimatedSeparator type="brush" />
+          <Certifications />
+          <AnimatedSeparator type="swipe" />
+          <GitHubStats />
+          <AnimatedSeparator type="swipe" />
+          <Contact />
+        </div>
       </div>
+      {/* Footer is NOT sticky, so appears at the end of the page */}
+      <Footer />
     </div>
   );
 };
 
 export default Index;
+
