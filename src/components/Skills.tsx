@@ -10,25 +10,23 @@ import {
   FileCode2,
   FileSpreadsheet,
   Server,
-  Docker,
-  Java,
-  Python,
   FileJson2,
 } from "lucide-react";
 import React from "react";
 
-// Map each skill to a Lucide icon where available
+// Map each skill to a Lucide icon where available.
+// Use only available icons. Use Server or FileCode2 for Docker, Java, Python as fallback.
 const skillIconMap: Record<string, React.ReactNode> = {
   "SQL": <Database className="h-5 w-5 text-orange-400 animate-float-icon" />,
   "Excel": <FileSpreadsheet className="h-5 w-5 text-green-400 animate-float-icon" />,
   "Power BI": <BarChart2 className="h-5 w-5 text-yellow-400 animate-float-icon" />,
-  "Python": <Python className="h-5 w-5 text-blue-400 animate-float-icon" />,
+  "Python": <FileCode2 className="h-5 w-5 text-blue-400 animate-float-icon" />,
   "Pandas": <FileSpreadsheet className="h-5 w-5 text-purple-400 animate-float-icon" />,
   "NumPy": <FileSpreadsheet className="h-5 w-5 text-indigo-400 animate-float-icon" />,
   "Matplotlib": <BarChart2 className="h-5 w-5 text-pink-400 animate-float-icon" />,
-  "Java": <Java className="h-5 w-5 text-red-400 animate-float-icon" />,
+  "Java": <FileCode2 className="h-5 w-5 text-red-400 animate-float-icon" />,
   "Apache Kafka": <Server className="h-5 w-5 text-teal-400 animate-float-icon" />,
-  "Docker": <Docker className="h-5 w-5 text-blue-500 animate-float-icon" />,
+  "Docker": <Server className="h-5 w-5 text-blue-500 animate-float-icon" />,
   "C++": <FileCode2 className="h-5 w-5 text-blue-300 animate-float-icon" />,
   "HTML": <FileCode2 className="h-5 w-5 text-orange-500 animate-float-icon" />,
   "CSS": <FileCode2 className="h-5 w-5 text-blue-500 animate-float-icon" />,
@@ -139,7 +137,6 @@ export const Skills = () => {
         }
         .animate-float-icon {
           animation: float-icon 0.9s cubic-bezier(.44,1.2,.39,1) both;
-          /* Staggered by index dynamically will require inline or styled-jsx/Tailwind plugin, here same for all */
         }
         `}
       </style>
