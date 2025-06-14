@@ -1,5 +1,5 @@
-
 import { Code, Database, Award, TrendingUp } from "lucide-react";
+import WireframeGlobe from "./WireframeGlobe";
 
 const stats = [
   {
@@ -59,9 +59,22 @@ export const About = () => {
               </div>
             </div>
             
-            <div className="relative animate-scale-in">
-              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-orange-500/30 to-orange-600/30 rounded-full flex items-center justify-center hover:scale-105 transition-transform duration-300">
-                <div className="w-72 h-72 bg-[#0D0D0D] rounded-full flex items-center justify-center border border-orange-500/30">
+            <div className="relative animate-scale-in" style={{ width: 320, height: 320 }}>
+              {/* 3D Globe Aura Canvas */}
+              <WireframeGlobe
+                width={200}
+                height={200}
+                className="-z-0"
+                color="#FF9100"
+              />
+              {/* Profile image with orange aura glow */}
+              <div
+                className="w-80 h-80 mx-auto bg-gradient-to-br from-orange-500/30 to-orange-600/30 rounded-full flex items-center justify-center hover:scale-105 transition-transform duration-300 relative z-10"
+                style={{
+                  boxShadow: "0 0 60px 8px #ff910088, 0 0 48px 10px #FFB34744",
+                }}
+              >
+                <div className="w-72 h-72 bg-[#0D0D0D] rounded-full flex items-center justify-center border border-orange-500/30 shadow-none">
                   <span className="text-6xl">👨‍💻</span>
                 </div>
               </div>
