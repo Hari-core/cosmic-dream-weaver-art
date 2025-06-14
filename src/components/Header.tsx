@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const [scrollProgress, setScrollProgress] = useState(0);
   const HEADER_HEIGHT = 80; // px
 
   const navItems = [
@@ -40,6 +41,16 @@ export const Header = () => {
     ];
 
     const handleScroll = () => {
+      // Calculate and set scroll progress
+      const totalScrollableHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const currentScrollPosition = window.scrollY;
+      const progress =
+        totalScrollableHeight > 0
+          ? (currentScrollPosition / totalScrollableHeight) * 100
+          : 0;
+      setScrollProgress(progress);
+
       const scrollPosition = window.scrollY + HEADER_HEIGHT + 1;
 
       if (window.scrollY < 10) {
@@ -183,6 +194,12 @@ export const Header = () => {
           </nav>
         )}
       </div>
+      
+      {/* Scroll Progress Bar */}
+      <div 
+        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-orange-400 to-orange-600 shadow-[0_0_8px_rgba(255,145,0,0.5)]"
+        style={{ width: `${scrollProgress}%`, transition: 'width 50ms linear' }}
+      />
       
       <style>
 {`
