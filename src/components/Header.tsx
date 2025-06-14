@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X, BarChart2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,23 +15,46 @@ export const Header = () => {
 
   // Track active section on scroll
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["hero", "about", "projects", "skills", "certifications", "github", "contact"];
-      const scrollPosition = window.scrollY + 100; // Offset for header
+    // To ensure correct header offset on all devices
+    const HEADER_HEIGHT = 80; // px; adjust if your header is taller/smaller
 
-      for (const sectionId of sections) {
+    const sections = [
+      "hero",
+      "about",
+      "projects",
+      "skills",
+      "certifications",
+      "github",
+      "contact",
+    ];
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + HEADER_HEIGHT + 1;
+      let found = false;
+
+      for (let i = 0; i < sections.length; i++) {
+        const sectionId = sections[i];
         const element = document.getElementById(sectionId);
         if (element) {
           const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          // If scrolled past the top of the section and not past the next section
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
             setActiveSection(sectionId);
+            found = true;
             break;
           }
         }
       }
+      // If scrolled to bottom or past all, set the last section active
+      if (!found) {
+        setActiveSection(sections[sections.length - 1]);
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Check initial position
 
     return () => window.removeEventListener("scroll", handleScroll);

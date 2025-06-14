@@ -1,4 +1,3 @@
-
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -76,7 +75,10 @@ const WaveSeparator = () => (
 const Index = () => {
   return (
     <div className="min-h-screen bg-[#0D0D0D] text-white overflow-x-hidden relative">
-      {/* Global background elements */}
+      {/* Sticky header: absolutely at the page top */}
+      <Header />
+
+      {/* Background shapes below header */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 opacity-5">
           <div className="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 rounded-full blur-3xl animate-[float_15s_ease-in-out_infinite]"></div>
@@ -86,10 +88,7 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Ensure header is at the top level and not inside scrollable container */}
-      <Header />
-
-      {/* Main content with top padding equal to the header height (responsive) */}
+      {/* MAIN CONTENT, offset with header height so nothing is hidden under header */}
       <div className="pt-20 md:pt-24">
         <section id="hero">
           <Hero />
@@ -125,4 +124,3 @@ const Index = () => {
 };
 
 export default Index;
-
