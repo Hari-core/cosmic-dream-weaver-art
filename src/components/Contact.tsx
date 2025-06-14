@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Mail, Send, Linkedin, Code, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -82,10 +81,9 @@ export const Contact = () => {
                 <div className="relative">
                   <Input
                     name="name"
-                    placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="bg-[#0D0D0D]/70 border-orange-500/30 text-white placeholder-gray-400 focus:border-orange-400 transition-all duration-300 peer pt-6 pb-2"
+                    className="bg-[#0D0D0D]/70 border-orange-500/30 text-white focus:border-orange-400 transition-all duration-300 peer pt-6 pb-2"
                     required
                   />
                   <label className={`absolute left-3 transition-all duration-300 pointer-events-none ${formData.name ? 'top-1 text-xs text-orange-400' : 'top-3 text-gray-400'}`}>
@@ -96,10 +94,9 @@ export const Contact = () => {
                   <Input
                     name="email"
                     type="email"
-                    placeholder="Your Email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="bg-[#0D0D0D]/70 border-orange-500/30 text-white placeholder-gray-400 focus:border-orange-400 transition-all duration-300 peer pt-6 pb-2"
+                    className="bg-[#0D0D0D]/70 border-orange-500/30 text-white focus:border-orange-400 transition-all duration-300 peer pt-6 pb-2"
                     required
                   />
                   <label className={`absolute left-3 transition-all duration-300 pointer-events-none ${formData.email ? 'top-1 text-xs text-orange-400' : 'top-3 text-gray-400'}`}>
@@ -109,11 +106,10 @@ export const Contact = () => {
                 <div className="relative">
                   <Textarea
                     name="message"
-                    placeholder="Your Message"
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="bg-[#0D0D0D]/70 border-orange-500/30 text-white placeholder-gray-400 focus:border-orange-400 transition-all duration-300 peer pt-6 pb-2"
+                    className="bg-[#0D0D0D]/70 border-orange-500/30 text-white focus:border-orange-400 transition-all duration-300 peer pt-6 pb-2"
                     required
                   />
                   <label className={`absolute left-3 transition-all duration-300 pointer-events-none ${formData.message ? 'top-1 text-xs text-orange-400' : 'top-3 text-gray-400'}`}>

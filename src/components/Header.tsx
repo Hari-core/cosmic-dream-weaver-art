@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X, BarChart2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,9 +7,11 @@ export const Header = () => {
   const [activeSection, setActiveSection] = useState("hero");
 
   const navItems = [
+    { name: "Home", href: "#hero", id: "hero" },
     { name: "About", href: "#about", id: "about" },
     { name: "Projects", href: "#projects", id: "projects" },
     { name: "Skills", href: "#skills", id: "skills" },
+    { name: "Certifications", href: "#certifications", id: "certifications" },
     { name: "Contact", href: "#contact", id: "contact" },
   ];
 
