@@ -1,6 +1,5 @@
 
 import { Code, Database, Award, TrendingUp } from "lucide-react";
-import { AnimatedSplashBehindTitle } from "@/components/AnimatedSplashBehindTitle";
 
 const stats = [
   {
@@ -34,12 +33,8 @@ export const About = () => {
     <section id="about" className="py-20 bg-gradient-to-b from-[#0D0D0D] to-gray-900/20">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8 font-['Poppins'] relative flex items-center justify-center">
-            <AnimatedSplashBehindTitle svgWidth={180} svgHeight={65}>
-              <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
-                About Me
-              </span>
-            </AnimatedSplashBehindTitle>
+          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent font-['Poppins']">
+            About Me
           </h2>
           
           <p className="text-xl text-orange-400 mb-12 italic animate-fade-in">

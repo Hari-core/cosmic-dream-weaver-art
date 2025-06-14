@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { AnimatedSplashBehindTitle } from "@/components/AnimatedSplashBehindTitle";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -61,15 +60,11 @@ export const Contact = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 font-['Poppins'] relative flex items-center justify-center">
-            <AnimatedSplashBehindTitle svgWidth={210} svgHeight={60}>
-              <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
-                Get In Touch
-              </span>
-            </AnimatedSplashBehindTitle>
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent font-['Poppins']">
+            Get In Touch
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Let&apos;s discuss opportunities, collaborations, or just have a chat about data and technology!
+            Let's discuss opportunities, collaborations, or just have a chat about data and technology!
           </p>
         </div>
 

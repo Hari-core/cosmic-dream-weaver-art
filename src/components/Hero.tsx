@@ -1,6 +1,6 @@
+
 import { ChevronDown, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { AnimatedSplashBehindTitle } from "@/components/AnimatedSplashBehindTitle";
 
 export const Hero = () => {
   return (
@@ -33,12 +33,10 @@ export const Hero = () => {
       
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 font-['Poppins'] relative flex items-center justify-center">
-            <AnimatedSplashBehindTitle svgWidth={230} svgHeight={80}>
-              <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">
-                Hari's Portfolio
-              </span>
-            </AnimatedSplashBehindTitle>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 font-['Poppins'] relative">
+            <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">
+              Hari's Portfolio
+            </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-4 font-['Poppins']">
             Data Enthusiast | Java Developer | Tech Explorer
