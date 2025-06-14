@@ -57,8 +57,10 @@ export const Header = () => {
             </span>
             {/* Relevant data analysis icon next to the logo */}
             <BarChart2 className="h-8 w-8 text-orange-400 mr-2 animate-bounce-slow" />
-            <span className="relative z-10 text-3xl md:text-4xl font-extrabold font-poppins text-orange-500"
-              style={{ letterSpacing: '0.01em', lineHeight: 1 }}>
+            <span
+              className="relative z-10 text-3xl md:text-4xl font-extrabold font-dancing text-orange-500"
+              style={{ letterSpacing: '0.01em', lineHeight: 1 }}
+            >
               {logoLetters}
             </span>
           </div>
