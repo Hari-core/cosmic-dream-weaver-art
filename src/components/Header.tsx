@@ -1,5 +1,6 @@
+
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Header = () => {
@@ -18,7 +19,7 @@ export const Header = () => {
     <span
       key={index}
       className="inline-block animate-[elegantLetterFloat_3.8s_ease-in-out_infinite]"
-      style={{ 
+      style={{
         animationDelay: `${index * 0.11}s`,
         animationFillMode: 'both',
         transition: 'color 0.3s'
@@ -29,16 +30,14 @@ export const Header = () => {
   ));
 
   return (
-    <header className="fixed top-0 w-full bg-[#0D0D0D]/95 backdrop-blur-sm border-b border-orange-500/30 z-50 transition-all duration-300 relative overflow-hidden">
+    <header className="sticky top-0 w-full bg-[#0D0D0D]/95 backdrop-blur-sm border-b border-orange-500/30 z-50 transition-all duration-300 relative overflow-hidden">
       {/* Animated background shapes */}
       <div className="absolute top-0 right-1/4 w-32 h-32 opacity-10">
         <div className="w-full h-full bg-gradient-to-br from-orange-400 to-orange-500 rounded-full blur-lg animate-[float_4s_ease-in-out_infinite]"></div>
       </div>
-      
       <div className="absolute top-0 left-1/3 w-24 h-24 opacity-15">
         <div className="w-full h-full bg-gradient-to-l from-orange-500 to-orange-600 transform rotate-45 rounded-sm blur-md animate-[float_5s_ease-in-out_infinite_reverse]"></div>
       </div>
-
       <div className="container mx-auto px-6 py-4 relative z-10">
         <div className="flex items-center justify-between">
           {/* Logo and splash, FIRM LEFT */}
@@ -57,12 +56,14 @@ export const Header = () => {
                 />
               </svg>
             </span>
+            {/* Add a reasonable icon next to the logo */}
+            <ArrowDown className="h-8 w-8 text-orange-400 mr-2 animate-bounce-slow" />
             <span className="relative z-10 text-3xl md:text-4xl font-extrabold font-poppins text-orange-500"
               style={{ letterSpacing: '0.01em', lineHeight: 1 }}>
               {logoLetters}
             </span>
           </div>
-          
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-3">
             {navItems.map((item) => (
@@ -108,7 +109,6 @@ export const Header = () => {
           </nav>
         )}
       </div>
-
       {/* Elegant, professional single-letter animation */}
       <style>
         {`
@@ -142,8 +142,16 @@ export const Header = () => {
               opacity: 1;
             }
           }
+          @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-7px);}
+          }
+          .animate-bounce-slow {
+            animation: bounce-slow 2.6s infinite;
+          }
         `}
       </style>
     </header>
   );
 };
+

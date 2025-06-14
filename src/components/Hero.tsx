@@ -3,6 +3,14 @@ import { ChevronDown, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
+  // Smooth scroll to About section on arrow click
+  const handleArrowClick = () => {
+    const about = document.getElementById("about");
+    if (about) {
+      about.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0D0D0D] via-orange-900/10 to-[#0D0D0D] relative overflow-hidden">
       {/* Animated blob background - Live SVG splash effect */}
@@ -55,6 +63,15 @@ export const Hero = () => {
               <Download className="mr-2 h-5 w-5" />
               Download Resume
             </Button>
+            {/* ChevronDown arrow now just after Download Resume button */}
+            <button
+              onClick={handleArrowClick}
+              aria-label="Scroll to About"
+              className="flex items-center justify-center mt-1 sm:mt-0 p-2 rounded-full hover:bg-orange-500/20 transition-all duration-200 group"
+              style={{ outline: "none", border: "none" }}
+            >
+              <ChevronDown className="h-8 w-8 text-orange-400 animate-bounce group-hover:text-orange-500 transition-colors" />
+            </button>
             <Button variant="outline" className="relative border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-black px-8 py-3 text-lg transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/25 hover:scale-105 group overflow-hidden">
               <div className="absolute inset-0 bg-orange-500 rounded-md blur opacity-0 group-hover:opacity-20 transition-opacity duration-300 -z-10"></div>
               <div className="absolute inset-0 rounded-md border-2 border-orange-400 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-300"></div>
@@ -62,11 +79,8 @@ export const Hero = () => {
             </Button>
           </div>
         </div>
-        
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="h-8 w-8 text-orange-400" />
-        </div>
       </div>
     </section>
   );
 };
+
