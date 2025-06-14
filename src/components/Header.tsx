@@ -15,8 +15,7 @@ export const Header = () => {
 
   // Track active section on scroll
   useEffect(() => {
-    // To ensure correct header offset on all devices
-    const HEADER_HEIGHT = 80; // px; adjust if your header is taller/smaller
+    const HEADER_HEIGHT = 80; // px
 
     const sections = [
       "hero",
@@ -37,7 +36,6 @@ export const Header = () => {
         const element = document.getElementById(sectionId);
         if (element) {
           const { offsetTop, offsetHeight } = element;
-          // If scrolled past the top of the section and not past the next section
           if (
             scrollPosition >= offsetTop &&
             scrollPosition < offsetTop + offsetHeight
@@ -48,14 +46,21 @@ export const Header = () => {
           }
         }
       }
-      // If scrolled to bottom or past all, set the last section active
+
+      // Fix: At the very top, always highlight HERO!
+      if (window.scrollY < 10) {
+        setActiveSection("hero");
+        return;
+      }
+
+      // If not found, default to last section
       if (!found) {
         setActiveSection(sections[sections.length - 1]);
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Check initial position
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
