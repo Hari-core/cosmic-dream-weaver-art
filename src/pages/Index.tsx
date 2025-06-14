@@ -23,7 +23,8 @@ const Index = () => {
       <Skills />
       <AnimatedSeparator type="brush" />
       <Certifications />
-      <AnimatedSeparator type="pulse" />
+      {/* Changed type from "pulse" to "swipe" */}
+      <AnimatedSeparator type="swipe" />
       <GitHubStats />
       <AnimatedSeparator type="swipe" />
       <Contact />

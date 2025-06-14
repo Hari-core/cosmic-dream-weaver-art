@@ -1,4 +1,3 @@
-
 import { ExternalLink, BarChart3, Cpu, Database, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -52,8 +51,10 @@ export const Projects = () => {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className="bg-gray-900/50 border-orange-500/30 hover:border-orange-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 group animate-slide-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`bg-gray-900/50 border-orange-500/30 hover:border-orange-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 group 
+                          ${index % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right'} 
+                          hover:border-2 hover:border-orange-500`} // Added hover border for "ripple outline" feel
+              style={{ animationDelay: `${index * 0.1}s` }} // animationDelay for staggered effect
             >
               <CardHeader>
                 <div className="flex items-center justify-between mb-4">

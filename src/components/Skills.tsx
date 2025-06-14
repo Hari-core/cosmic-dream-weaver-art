@@ -1,5 +1,5 @@
 
-import { Database, Code, Wrench, Globe } from "lucide-react";
+import { Database, Code, Wrench, Globe, Terminal } from "lucide-react"; // Added Terminal for C++
 
 const skillCategories = [
   {
@@ -15,17 +15,14 @@ const skillCategories = [
     color: "from-orange-500/20 to-orange-600/20"
   },
   {
-    title: "Programming",
-    icon: <Wrench className="h-8 w-8 text-orange-400" />,
-    skills: ["Git", "GitHub", "Jupyter", "VS Code"],
+    title: "Programming Languages", // Renamed from "Programming"
+    icon: <Terminal className="h-8 w-8 text-orange-400" />, // Changed icon
+    skills: ["C++", "HTML", "CSS"], // Updated skills as requested
     color: "from-orange-500/20 to-orange-600/20"
   },
-  {
-    title: "Web",
-    icon: <Globe className="h-8 w-8 text-orange-400" />,
-    skills: ["HTML", "CSS"],
-    color: "from-orange-500/20 to-orange-600/20"
-  }
+  // Removed the "Web" category as its contents (HTML, CSS) are merged into "Programming Languages"
+  // If you want to add a "Dev & Workflow Tools" category for Git, GitHub, etc., let me know!
+  // Also, if you'd like a "Soft Skills" category, please provide the skills to list.
 ];
 
 export const Skills = () => {
@@ -41,7 +38,7 @@ export const Skills = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"> {/* Adjusted grid for 3 categories */}
           {skillCategories.map((category, index) => (
             <div
               key={index}

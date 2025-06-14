@@ -16,7 +16,8 @@ export const GitHubStats = () => {
 
         <div className="max-w-4xl mx-auto space-y-8">
           {/* GitHub Stats Card */}
-          <div className="text-center animate-fade-in">
+          {/* Changed animation to slide-in-left */}
+          <div className="text-center animate-slide-in-left" style={{ animationDelay: '0s' }}>
             <img
               src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=dark&bg_color=0D0D0D&title_color=FFA500&icon_color=FFA500&text_color=ffffff&border_color=FFA500`}
               alt="GitHub Stats"
@@ -26,7 +27,8 @@ export const GitHubStats = () => {
 
           {/* Top Languages and Streak Stats */}
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="text-center animate-slide-in-right">
+            {/* Changed animation to slide-in-left */}
+            <div className="text-center animate-slide-in-left" style={{ animationDelay: '0.1s' }}>
               <img
                 src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=dark&bg_color=0D0D0D&title_color=FFA500&text_color=ffffff&border_color=FFA500`}
                 alt="Top Languages"
@@ -34,7 +36,8 @@ export const GitHubStats = () => {
               />
             </div>
             
-            <div className="text-center animate-slide-in-left">
+            {/* Kept animation slide-in-left */}
+            <div className="text-center animate-slide-in-left" style={{ animationDelay: '0.2s' }}>
               <img
                 src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=dark&background=0D0D0D&stroke=FFA500&ring=FFA500&fire=FFA500&currStreakNum=ffffff&sideNums=ffffff&currStreakLabel=FFA500&sideLabels=cccccc&dates=cccccc&border=FFA500`}
                 alt="GitHub Streak"
