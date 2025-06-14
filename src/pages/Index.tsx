@@ -23,16 +23,45 @@ const WaveSeparator = () => (
         d="M0,20 Q450,40 850,25 T1600,20 L1600,70 L0,70 Z"
         fill="#914916"
       />
-      {/* Glowing radial gradient overlay at center-top */}
+      {/* Animated moving/breathing glowy ellipse */}
       <ellipse
+        className="wave-glow-ellipse pointer-events-none"
         cx="800"
         cy="25"
         rx="180"
         ry="20"
         fill="url(#waveGlow)"
-        opacity="0.85"
+        style={{ opacity: 0.8 }}
       />
     </svg>
+    {/* Custom animation styles using Tailwind's layer */}
+    <style>
+      {`
+        @keyframes wave-glow-move {
+          0% {
+            transform: translateX(-520px) scale(0.93);
+            opacity: 0.7;
+          }
+          40% {
+            transform: translateX(0px) scale(1.1);
+            opacity: 1;
+          }
+          60% {
+            transform: translateX(0px) scale(1.1);
+            opacity: 1;
+          }
+          100% {
+            transform: translateX(520px) scale(0.93);
+            opacity: 0.7;
+          }
+        }
+        .wave-glow-ellipse {
+          animation: wave-glow-move 3.8s ease-in-out infinite alternate;
+          transition: opacity 0.2s, filter 0.2s;
+          filter: blur(1.5px) drop-shadow(0 2px 8px #FFB347bb);
+        }
+      `}
+    </style>
   </div>
 );
 
