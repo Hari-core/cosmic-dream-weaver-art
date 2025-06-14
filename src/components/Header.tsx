@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const HEADER_HEIGHT = 80; // px
 
   const navItems = [
     { name: "Home", href: "#hero", id: "hero" },
@@ -16,10 +17,18 @@ export const Header = () => {
     { name: "Contact", href: "#contact", id: "contact" },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.substring(1);
+    const element = document.getElementById(targetId);
+    if (element) {
+      const y = element.getBoundingClientRect().top + window.scrollY - HEADER_HEIGHT;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
   // Track active section on scroll
   useEffect(() => {
-    const HEADER_HEIGHT = 80; // px
-
     const sections = [
       "hero",
       "about",
@@ -121,6 +130,7 @@ export const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className={`relative px-4 py-2 rounded-lg transition-all duration-300 group font-poppins text-lg font-medium ${
                   activeSection === item.id
                     ? "bg-orange-500/20 text-orange-400 border border-orange-500/30"
@@ -161,7 +171,10 @@ export const Header = () => {
                       ? "text-orange-400 bg-orange-500/20 border border-orange-500/30"
                       : "text-gray-200 hover:text-orange-400 bg-gray-800/70 hover:bg-orange-500/20"
                   }`}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    handleNavClick(e, item.href);
+                    setIsMenuOpen(false);
+                  }}
                 >
                   {item.name}
                 </a>
@@ -172,7 +185,7 @@ export const Header = () => {
       </div>
       
       <style>
-        {`
+{`
           @keyframes elegantLetterFloat {
             0% {
               transform: translateY(0) scale(1) translateX(0);
