@@ -4,15 +4,15 @@ import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900/20 to-gray-900">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0D0D0D] via-orange-900/10 to-[#0D0D0D]">
       <div className="container mx-auto px-6 text-center">
         <div className="animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-400 via-yellow-400 to-blue-400 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 font-['Poppins']">
+            <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">
               Harikrishnan H
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8">
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 font-['Poppins']">
             Data Enthusiast | Java Developer | Tech Explorer
           </p>
           <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
@@ -20,18 +20,20 @@ export const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button className="bg-gradient-to-r from-blue-500 to-yellow-500 hover:from-blue-600 hover:to-yellow-600 text-white px-8 py-3 text-lg">
+            <Button className="relative bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-3 text-lg transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/25 hover:scale-105 group">
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-500 rounded-md blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
               <Download className="mr-2 h-5 w-5" />
               Download Resume
             </Button>
-            <Button variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-800 px-8 py-3 text-lg">
+            <Button variant="outline" className="border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-black px-8 py-3 text-lg transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/25 hover:scale-105 group">
+              <div className="absolute inset-0 bg-orange-500 rounded-md blur opacity-0 group-hover:opacity-20 transition-opacity duration-300 -z-10"></div>
               <a href="#contact">Get In Touch</a>
             </Button>
           </div>
         </div>
         
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="h-8 w-8 text-gray-400" />
+          <ChevronDown className="h-8 w-8 text-orange-400" />
         </div>
       </div>
     </section>

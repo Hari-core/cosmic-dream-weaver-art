@@ -8,17 +8,24 @@ import { Certifications } from "@/components/Certifications";
 import { GitHubStats } from "@/components/GitHubStats";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { AnimatedSeparator } from "@/components/AnimatedSeparator";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-[#0D0D0D] text-white overflow-x-hidden">
       <Header />
       <Hero />
+      <AnimatedSeparator type="dots" />
       <About />
+      <AnimatedSeparator type="waves" />
       <Projects />
+      <AnimatedSeparator type="rotating" />
       <Skills />
+      <AnimatedSeparator type="morphing" />
       <Certifications />
+      <AnimatedSeparator type="lines" />
       <GitHubStats />
+      <AnimatedSeparator type="dots" />
       <Contact />
       <Footer />
     </div>
