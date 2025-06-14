@@ -102,7 +102,7 @@ export const Header = () => {
   ));
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-[#0D0D0D]/95 backdrop-blur-sm border-b border-orange-500/30 z-50 transition-all duration-300 overflow-hidden shadow-lg">
+    <header className="fixed top-0 left-0 w-full bg-background/95 backdrop-blur-sm border-b border-orange-500/30 z-50 transition-all duration-300 overflow-hidden shadow-lg">
       {/* Animated background shapes */}
       <div className="absolute top-0 right-1/4 w-32 h-32 opacity-10">
         <div className="w-full h-full bg-gradient-to-br from-orange-400 to-orange-500 rounded-full blur-lg animate-[float_4s_ease-in-out_infinite]"></div>
@@ -146,7 +146,7 @@ export const Header = () => {
                 className={`relative px-4 py-2 rounded-lg transition-all duration-300 group font-poppins text-lg font-medium ${
                   activeSection === item.id
                     ? "bg-orange-500/20 text-orange-400 border border-orange-500/30"
-                    : "bg-gray-800/70 text-gray-200 hover:text-orange-400 hover:-translate-y-[2px]"
+                    : "bg-secondary/70 text-secondary-foreground hover:text-orange-400 hover:-translate-y-[2px]"
                 }`}
                 style={{ fontFamily: 'Poppins, sans-serif' }}
               >
@@ -164,7 +164,7 @@ export const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden text-white hover:bg-orange-500/20 hover:text-orange-400"
+              className="md:hidden text-foreground hover:bg-orange-500/20 hover:text-orange-400"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -184,7 +184,7 @@ export const Header = () => {
                   className={`transition-colors duration-300 py-2 font-poppins px-4 rounded-lg text-lg font-medium ${
                     activeSection === item.id
                       ? "text-orange-400 bg-orange-500/20 border border-orange-500/30"
-                      : "text-gray-200 hover:text-orange-400 bg-gray-800/70 hover:bg-orange-500/20"
+                      : "text-secondary-foreground bg-secondary/70 hover:text-orange-400 hover:bg-orange-500/20"
                   }`}
                   onClick={(e) => {
                     handleNavClick(e, item.href);

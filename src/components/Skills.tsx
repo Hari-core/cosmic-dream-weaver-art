@@ -63,7 +63,7 @@ const skillCategories = [
 
 export const Skills = () => {
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-gray-900/20 to-[#0D0D0D] relative overflow-hidden">
+    <section id="skills" className="py-20 bg-muted/20 relative overflow-hidden">
       {/* Animated octagon background */}
       <div className="absolute top-1/3 right-24 w-72 h-72 opacity-20">
         <svg
@@ -93,7 +93,7 @@ export const Skills = () => {
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent font-['Poppins']">
             Skills & Technologies
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             My technical toolkit spans across data analysis, backend development, and various supporting technologies.
           </p>
         </div>
@@ -107,7 +107,7 @@ export const Skills = () => {
             >
               <div className="flex items-center mb-4">
                 {category.icon}
-                <h3 className="text-xl font-semibold ml-3 text-white font-['Poppins'] group-hover:text-orange-400 transition-colors">
+                <h3 className="text-xl font-semibold ml-3 text-foreground font-['Poppins'] group-hover:text-orange-400 transition-colors">
                   {category.title}
                 </h3>
               </div>
@@ -115,10 +115,10 @@ export const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
-                    className="flex items-center space-x-3 bg-[#0D0D0D]/50 px-3 py-2 rounded-lg text-gray-300 text-sm hover:bg-orange-500/20 hover:text-orange-300 transition-all duration-200 hover:shadow-sm"
+                    className="flex items-center space-x-3 bg-background/50 px-3 py-2 rounded-lg text-muted-foreground text-sm hover:bg-orange-500/20 hover:text-orange-300 transition-all duration-200 hover:shadow-sm"
                   >
                     {skillIconMap[skill] || (
-                      <Wrench className="h-5 w-5 text-gray-400 animate-float-icon" />
+                      <Wrench className="h-5 w-5 text-muted-foreground animate-float-icon" />
                     )}
                     <span>{skill}</span>
                   </div>
