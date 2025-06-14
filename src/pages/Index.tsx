@@ -1,4 +1,3 @@
-
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -18,7 +17,8 @@ const Index = () => {
       {/* Changed from diagonal (which had 3 dots) to swipe */}
       <AnimatedSeparator type="swipe" />
       <About />
-      <AnimatedSeparator type="swipe" />
+      {/* Use brush animation before Projects section for wavy effect */}
+      <AnimatedSeparator type="brush" />
       <Projects />
       <AnimatedSeparator type="flowing" />
       <Skills />
@@ -35,4 +35,3 @@ const Index = () => {
 };
 
 export default Index;
-
