@@ -2,24 +2,34 @@
 import { ChevronDown, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-type HeroProps = { showKenBurns?: boolean };
-
-export const Hero = ({ showKenBurns }: HeroProps) => {
+export const Hero = () => {
   return (
-    <section className="flex items-center justify-center min-h-[70vh] bg-transparent relative overflow-hidden">
-      {/* Animated Ken Burns background */}
-      {showKenBurns && (
-        <div className="absolute inset-0 w-full h-full z-0">
-          <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
-            <img
-              src="https://source.unsplash.com/random/1920x1080?data,tech"
-              alt=""
-              className="w-full h-full object-cover scale-100 animate-kenburns bg-[#111] brightness-[.6]"
-              style={{ animation: "kenBurns 16s ease-in-out infinite alternate" }}
-            />
-          </div>
-        </div>
-      )}
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0D0D0D] via-orange-900/10 to-[#0D0D0D] relative overflow-hidden">
+      {/* Animated blob background - Live SVG splash effect */}
+      <div className="absolute top-1/4 left-10 w-96 h-96 opacity-30">
+        <svg
+          viewBox="0 0 200 200"
+          className="w-full h-full animate-[float_8s_ease-in-out_infinite]"
+        >
+          <defs>
+            <linearGradient id="blob-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FFA500" />
+              <stop offset="50%" stopColor="#FF8C00" />
+              <stop offset="100%" stopColor="#FF6347" />
+            </linearGradient>
+          </defs>
+          <path
+            fill="url(#blob-gradient)"
+            className="animate-[morph_10s_ease-in-out_infinite]"
+            d="M40,-65C50,-55,55,-35,65,-20C75,-5,90,5,95,20C100,35,95,55,85,70C75,85,60,95,40,100C20,105,0,105,-25,95C-50,85,-75,65,-85,40C-95,15,-90,-15,-80,-40C-70,-65,-55,-85,-35,-90C-15,-95,0,-85,20,-75C40,-65,40,-65,40,-65Z"
+          />
+        </svg>
+      </div>
+      
+      {/* Additional floating elements */}
+      <div className="absolute top-1/3 right-20 w-64 h-64 opacity-20">
+        <div className="w-full h-full bg-gradient-to-l from-orange-400 to-orange-500 rounded-full blur-2xl animate-[float_6s_ease-in-out_infinite_reverse]"></div>
+      </div>
       
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="animate-fade-in">
@@ -37,6 +47,7 @@ export const Hero = ({ showKenBurns }: HeroProps) => {
           <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
             Passionate about transforming raw data into meaningful insights and building scalable backend solutions.
           </p>
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button className="relative bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-3 text-lg transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/25 hover:scale-105 group overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-500 rounded-md blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
@@ -51,16 +62,11 @@ export const Hero = ({ showKenBurns }: HeroProps) => {
             </Button>
           </div>
         </div>
+        
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <ChevronDown className="h-8 w-8 text-orange-400" />
         </div>
       </div>
-      <style>{`
-        @keyframes kenBurns {
-          0% { transform: scale(1);}
-          100% { transform: scale(1.18);}
-        }
-      `}</style>
     </section>
   );
 };
