@@ -1,4 +1,3 @@
-
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -81,7 +80,6 @@ const Index = () => {
         <div className="absolute top-1/4 right-1/4 w-96 h-96 opacity-5">
           <div className="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 rounded-full blur-3xl animate-[float_15s_ease-in-out_infinite]"></div>
         </div>
-        
         <div className="absolute bottom-1/4 left-1/4 w-80 h-80 opacity-5">
           <div className="w-full h-full bg-gradient-to-tl from-orange-500 to-orange-400 transform rotate-45 blur-3xl animate-[float_12s_ease-in-out_infinite_reverse]"></div>
         </div>
@@ -89,7 +87,6 @@ const Index = () => {
 
       {/* Fixed sticky content: from logo/header to Contact */}
       <div className="fixed inset-0 z-10 flex flex-col overflow-hidden">
-        {/* Header is already fixed/sticky, so only add it here for stacking context */}
         <Header />
         <div className="flex-1 min-h-0 overflow-y-auto bg-transparent pt-20 md:pt-24 p-0">
           <Hero />
@@ -107,11 +104,10 @@ const Index = () => {
           <Contact />
         </div>
       </div>
-      {/* Footer is NOT sticky, so appears at the end of the page */}
+      {/* Footer is rendered AFTER the fixed main content, so it is not locked/sticky */}
       <Footer />
     </div>
   );
 };
 
 export default Index;
-
