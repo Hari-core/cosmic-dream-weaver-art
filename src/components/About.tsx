@@ -1,4 +1,5 @@
 
+
 import { Code, Database, Award, TrendingUp } from "lucide-react";
 import WireframeGlobe from "./WireframeGlobe";
 
@@ -31,8 +32,18 @@ const stats = [
 
 export const About = () => {
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-[#0D0D0D] to-gray-900/20">
-      <div className="container mx-auto px-6">
+    <section id="about" className="py-20 bg-gradient-to-b from-[#0D0D0D] to-gray-900/20 relative overflow-hidden">
+      {/* Animated diamond background */}
+      <div className="absolute top-1/4 right-16 w-80 h-80 opacity-20">
+        <div className="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 transform rotate-45 rounded-lg blur-xl animate-[float_7s_ease-in-out_infinite]"></div>
+      </div>
+      
+      {/* Floating circle */}
+      <div className="absolute bottom-1/4 left-12 w-56 h-56 opacity-15">
+        <div className="w-full h-full bg-gradient-to-l from-orange-500 to-orange-400 rounded-full blur-2xl animate-[float_9s_ease-in-out_infinite_reverse]"></div>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent font-['Poppins']">
             About Me
@@ -114,3 +125,4 @@ export const About = () => {
     </section>
   );
 };
+
