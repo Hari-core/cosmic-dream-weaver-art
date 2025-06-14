@@ -36,8 +36,8 @@ export const Footer = () => {
           </div>
           
           <div className="border-t border-orange-500/30 pt-6">
-            <p className="text-gray-500">
-              © 2024 Harikrishnan H. Built with passion for data and technology.
+            <p className="font-mono text-sm tracking-wider text-gray-500">
+              &gt; Handcrafted by Harikrishnan H // 2024
             </p>
           </div>
         </div>
