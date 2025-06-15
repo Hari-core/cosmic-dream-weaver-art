@@ -1,5 +1,3 @@
-
-
 import { Code, Database, Award, TrendingUp } from "lucide-react";
 import WireframeGlobe from "./WireframeGlobe";
 
@@ -8,29 +6,44 @@ const stats = [
     icon: <Code className="h-8 w-8 text-orange-400" />,
     value: "4+",
     label: "Projects",
-    description: "Built with passion"
+    description: "Built with passion",
+    targetId: "projects",
   },
   {
     icon: <Database className="h-8 w-8 text-orange-400" />,
     value: "8+",
     label: "Technologies",
-    description: "Mastered & counting"
+    description: "Mastered & counting",
+    targetId: "skills",
   },
   {
     icon: <Award className="h-8 w-8 text-orange-400" />,
     value: "3+",
     label: "Certifications",
-    description: "Achieved & ongoing"
+    description: "Achieved & ongoing",
+    targetId: "certifications",
   },
   {
     icon: <TrendingUp className="h-8 w-8 text-orange-400" />,
     value: "100%",
     label: "Dedication",
-    description: "To continuous learning"
-  }
+    description: "To continuous learning",
+    targetId: "footer",
+  },
 ];
 
 export const About = () => {
+  const HEADER_HEIGHT = 80; // from Header.tsx
+
+  const handleStatClick = (targetId: string) => {
+    const element = document.getElementById(targetId);
+    if (element) {
+      const y =
+        element.getBoundingClientRect().top + window.scrollY - HEADER_HEIGHT;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="about" className="py-20 bg-gradient-to-b from-[#0D0D0D] to-gray-900/20 relative overflow-hidden">
       {/* Animated diamond background */}
@@ -100,7 +113,8 @@ export const About = () => {
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 p-6 rounded-xl border border-orange-500/30 hover:border-orange-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 animate-[fadeInUp_0.6s_ease-out] group"
+                onClick={() => handleStatClick(stat.targetId)}
+                className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 p-6 rounded-xl border border-orange-500/30 hover:border-orange-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 animate-[fadeInUp_0.6s_ease-out] group cursor-pointer"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex flex-col items-center text-center">
@@ -125,4 +139,3 @@ export const About = () => {
     </section>
   );
 };
-

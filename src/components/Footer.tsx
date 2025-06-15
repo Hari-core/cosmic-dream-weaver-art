@@ -1,6 +1,6 @@
 export const Footer = () => {
   return (
-    <footer className="py-12 bg-[#0D0D0D] border-t border-orange-500/30 relative overflow-hidden">
+    <footer id="footer" className="py-12 bg-[#0D0D0D] border-t border-orange-500/30 relative overflow-hidden">
       {/* Animated background shapes */}
       <div className="absolute top-1/2 left-10 w-40 h-40 opacity-15">
         <svg
