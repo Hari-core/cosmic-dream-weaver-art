@@ -1,3 +1,4 @@
+
 import { Code, Database, Award, TrendingUp } from "lucide-react";
 import WireframeGlobe from "./WireframeGlobe";
 
@@ -58,22 +59,22 @@ export const About = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent font-['Poppins']">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent font-['Poppins']">
             About Me
           </h2>
           
-          <p className="text-xl text-orange-400 mb-12 italic animate-fade-in">
+          <p className="text-lg sm:text-xl text-orange-400 mb-12 italic animate-fade-in">
             "Detail-driven and growth-fueled, solving real-world problems one dataset at a time."
           </p>
           
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="space-y-6 text-left animate-fade-in">
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
                 I'm a passionate Data Analyst and Java Developer with a unique background in electronics. 
                 I love transforming raw data into meaningful insights and building scalable backend solutions.
               </p>
               
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
                 Currently exploring data analytics, Kafka pipelines, and real-world dashboards. 
                 I'm always eager to learn new technologies and tackle challenging problems.
               </p>
@@ -84,7 +85,7 @@ export const About = () => {
               </div>
             </div>
             
-            <div className="relative animate-scale-in" style={{ width: 320, height: 320 }}>
+            <div className="relative animate-scale-in mx-auto w-64 h-64 sm:w-80 sm:h-80">
               {/* 3D rotating Wireframe Globe Aura - positioned behind */}
               <div className="absolute inset-0 z-0">
                 <WireframeGlobe
@@ -95,14 +96,14 @@ export const About = () => {
               </div>
               {/* Profile image with neon orange aura glow - positioned in front */}
               <div
-                className="relative z-10 w-80 h-80 mx-auto bg-gradient-to-br from-orange-500/30 to-orange-600/30 rounded-full flex items-center justify-center hover:scale-105 transition-transform duration-300"
+                className="relative z-10 w-full h-full mx-auto bg-gradient-to-br from-orange-500/30 to-orange-600/30 rounded-full flex items-center justify-center hover:scale-105 transition-transform duration-300"
                 style={{
                   boxShadow: "0 0 45px 16px #FF910099, 0 0 64px 12px #FFB34766",
                   filter: "drop-shadow(0 0 24px #FF910099)",
                 }}
               >
-                <div className="w-72 h-72 bg-[#0D0D0D] rounded-full flex items-center justify-center border border-orange-500/30 shadow-none">
-                  <span className="text-6xl">👨‍💻</span>
+                <div className="w-[calc(100%-2rem)] h-[calc(100%-2rem)] bg-[#0D0D0D] rounded-full flex items-center justify-center border border-orange-500/30 shadow-none">
+                  <span className="text-5xl sm:text-6xl">👨‍💻</span>
                 </div>
               </div>
             </div>

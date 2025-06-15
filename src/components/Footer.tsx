@@ -1,3 +1,4 @@
+
 export const Footer = () => {
   return (
     <footer id="footer" className="py-12 bg-[#0D0D0D] border-t border-orange-500/30 relative overflow-hidden">
@@ -24,7 +25,7 @@ export const Footer = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center">
           <div className="mb-6">
-            <h3 className="text-4xl font-bold bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent mb-4 font-dancing">
+            <h3 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent mb-4 font-dancing">
               Harikrishnan H
             </h3>
             <p className="text-gray-400 max-w-2xl mx-auto italic text-lg hover:text-orange-400 transition-colors duration-300 cursor-default group">

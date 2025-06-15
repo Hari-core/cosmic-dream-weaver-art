@@ -1,3 +1,4 @@
+
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -20,7 +21,7 @@ const WaveSeparator = () => (
       <div className="w-full h-full bg-gradient-to-l from-orange-500 to-orange-600 transform rotate-45 blur-sm animate-[float_4s_ease-in-out_infinite_reverse]"></div>
     </div>
 
-    <svg viewBox="0 0 1600 70" className="block w-full h-12 relative z-10" preserveAspectRatio="none">
+    <svg viewBox="0 0 1600 70" className="block w-full h-10 sm:h-12 relative z-10" preserveAspectRatio="none">
       <defs>
         <radialGradient id="waveGlow" cx="50%" cy="40%" r="40%">
           <stop offset="0%" stopColor="#FFB347" stopOpacity="0.85" />

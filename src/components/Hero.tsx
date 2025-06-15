@@ -1,3 +1,4 @@
+
 import { ChevronDown, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -94,7 +95,7 @@ export const Hero = () => {
           <p className="text-lg md:text-xl text-orange-400 mb-8 font-['Poppins'] italic">
             "Once an electronics tinkerer, now decoding data stories."
           </p>
-          <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
             Passionate about transforming raw data into meaningful insights and building scalable backend solutions.
           </p>
           
