@@ -2,14 +2,18 @@
 import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Points, PointMaterial } from '@react-three/drei'
-import { useRef, useState, useMemo } from 'react'
+import { useRef, useMemo } from 'react'
 
 const Particles = (props: any) => {
   const ref = useRef<THREE.Points>(null!)
   
   const points = useMemo(() => {
-    const p = new Array(5000).fill(0).map((v) => (0.5 - Math.random()) * 7.5);
-    return new Float32Array(p);
+    const numPoints = 5000;
+    const p = new Float32Array(numPoints * 3);
+    for (let i = 0; i < p.length; i++) {
+      p[i] = (Math.random() - 0.5) * 7.5;
+    }
+    return p;
   }, []);
 
   useFrame((state, delta) => {
