@@ -119,8 +119,8 @@ export const Projects = () => {
                   </CardContent>
                 </Card>
               </DialogTrigger>
-              <DialogContent className="bg-[#0D0D0D] border-orange-500/30 text-white p-0 max-h-[90vh] sm:max-w-2xl">
-                <ScrollArea className="h-full rounded-lg">
+              <DialogContent className="bg-[#0D0D0D] border-orange-500/30 text-white p-0 sm:max-w-2xl">
+                <ScrollArea className="max-h-[85vh] rounded-lg">
                   <div className="p-8">
                     <DialogHeader>
                       <DialogTitle className="text-3xl text-orange-400 font-['Poppins'] mb-4">{project.title}</DialogTitle>
