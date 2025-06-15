@@ -1,7 +1,5 @@
-
 import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { PointMaterial } from '@react-three/drei'
 import { useRef, useMemo } from 'react'
 
 const Particles = (props: any) => {
@@ -34,7 +32,7 @@ const Particles = (props: any) => {
             itemSize={3}
           />
         </bufferGeometry>
-        <PointMaterial
+        <pointsMaterial
           transparent
           color="#FFA500"
           size={0.015}
