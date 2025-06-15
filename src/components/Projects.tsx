@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { ProjectDialogBackground } from "./ProjectDialogBackground";
 
 const projects = [
   {
@@ -125,8 +126,9 @@ export const Projects = () => {
                   </CardContent>
                 </Card>
               </DialogTrigger>
-              <DialogContent className="bg-[#0D0D0D] border-orange-500/30 text-white p-0 sm:max-w-2xl">
-                <ScrollArea className="max-h-[85vh] rounded-lg">
+              <DialogContent className="bg-[#0D0D0D]/80 backdrop-blur-sm border-orange-500/30 text-white p-0 sm:max-w-2xl relative overflow-hidden">
+                <ProjectDialogBackground />
+                <ScrollArea className="max-h-[85vh] rounded-lg relative z-10">
                   <div className="p-8">
                     <DialogHeader>
                       <DialogTitle className="text-3xl text-orange-400 font-['Poppins'] mb-4">{project.title}</DialogTitle>
