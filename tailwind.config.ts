@@ -248,6 +248,22 @@ export default {
           '50%': { backgroundPosition: '100% 50%' },
           '100%': { backgroundPosition: '0% 50%' },
         },
+        'icon-jiggle': {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        },
+        'icon-pulse': {
+          '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+          '50%': { transform: 'scale(1.15)', opacity: '.9' },
+        },
+        'icon-stack': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-6px)' },
+        },
+        'icon-trend': {
+          '0%, 100%': { transform: 'translateY(0) translateX(0)' },
+          '50%': { transform: 'translateY(-5px) translateX(5px)' },
+        },
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -268,6 +284,10 @@ export default {
 				'fadeInUp': 'fadeInUp 0.6s ease-out',
 				'subtle-wobble': 'subtle-wobble 5s ease-in-out infinite',
         'gradient-pan': 'gradient-pan 3s ease-in-out infinite',
+        'icon-jiggle': 'icon-jiggle 0.4s ease-in-out 3',
+        'icon-pulse': 'icon-pulse 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'icon-stack': 'icon-stack 1.2s ease-in-out infinite',
+        'icon-trend': 'icon-trend 1.2s ease-in-out infinite',
 			}
 		}
 	},

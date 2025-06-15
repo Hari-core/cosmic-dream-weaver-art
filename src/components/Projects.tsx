@@ -1,4 +1,4 @@
-
+import * as React from "react";
 import { ExternalLink, BarChart3, Cpu, Database, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,6 +13,7 @@ const projects = [
     longDescription: "This project involved creating a comprehensive HR analytics dashboard using Power BI. The goal was to identify key factors contributing to employee attrition and provide management with actionable insights to improve retention. I connected to various data sources, performed data cleaning and transformation in Power Query, and built an interactive dashboard with visualizations of attrition rates, department-level analysis, and trend analysis over time.",
     image: "/placeholder.svg",
     icon: <BarChart3 className="h-8 w-8 text-orange-400" />,
+    animationClass: "group-hover:animate-icon-jiggle",
     tools: ["Power BI", "Excel", "SQL"],
     github: "#"
   },
@@ -22,6 +23,7 @@ const projects = [
     longDescription: "A classic project to showcase algorithmic skills. I implemented a backtracking algorithm in both Java and Python to solve any valid Sudoku puzzle. The implementation includes optimizations to improve performance, such as constraint propagation. This project honed my problem-solving skills and understanding of recursive algorithms.",
     image: "/placeholder.svg",
     icon: <Cpu className="h-8 w-8 text-orange-400" />,
+    animationClass: "group-hover:animate-icon-pulse",
     tools: ["Java", "Python", "Algorithms"],
     github: "#"
   },
@@ -31,6 +33,7 @@ const projects = [
     longDescription: "Built a scalable, real-time data pipeline using Apache Kafka for stream processing. The system was containerized with Docker for easy deployment and scalability. This project demonstrates my ability to work with distributed systems and build robust data infrastructure for handling high-throughput data streams.",
     image: "/placeholder.svg",
     icon: <Database className="h-8 w-8 text-orange-400" />,
+    animationClass: "group-hover:animate-icon-stack",
     tools: ["Apache Kafka", "Docker", "Java"],
     github: "#"
   },
@@ -40,6 +43,7 @@ const projects = [
     longDescription: "A personal finance tool built to track and analyze investment portfolios. Using Excel and Power BI, I created a dashboard to visualize asset allocation, performance over time, and compare against market benchmarks. It uses DAX for complex calculations and provides a clear overview of financial health.",
     image: "/placeholder.svg",
     icon: <TrendingUp className="h-8 w-8 text-orange-400" />,
+    animationClass: "group-hover:animate-icon-trend",
     tools: ["Excel", "Power BI", "DAX"],
     github: "#"
   }
@@ -95,7 +99,9 @@ export const Projects = () => {
                 >
                   <CardHeader>
                     <div className="flex items-center justify-between mb-4">
-                      {project.icon}
+                      {React.cloneElement(project.icon, {
+                        className: `${project.icon.props.className} ${project.animationClass}`
+                      })}
                     </div>
                     <CardTitle className="text-white group-hover:text-orange-400 transition-colors font-['Poppins']">
                       {project.title}
