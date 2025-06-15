@@ -23,7 +23,7 @@ export const MobileNavigation = ({ navItems, activeSection, handleNavClick, clos
             className={`transition-colors duration-300 py-2 font-poppins px-4 rounded-lg text-lg font-medium ${
               activeSection === item.id
                 ? "text-orange-400 bg-orange-500/20 border border-orange-500/30"
-                : "text-gray-200 hover:text-orange-400 bg-gray-800/70 hover:bg-orange-500/20"
+                : "text-gray-200 hover:text-orange-400 bg-gray-800/70 hover:bg-orange-500/20 active:bg-orange-500/25"
             }`}
             onClick={(e) => {
               handleNavClick(e, item.href);

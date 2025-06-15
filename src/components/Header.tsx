@@ -107,7 +107,7 @@ export const Header = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden text-white hover:bg-orange-500/20 hover:text-orange-400"
+            className="md:hidden text-white hover:bg-orange-500/20 hover:text-orange-400 active:bg-orange-500/30 active:scale-95 transition-transform"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >

@@ -115,7 +115,7 @@ export const About = () => {
               <div
                 key={index}
                 onClick={() => handleStatClick(stat.targetId)}
-                className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 p-6 rounded-xl border border-orange-500/30 hover:border-orange-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 animate-[fadeInUp_0.6s_ease-out] group cursor-pointer"
+                className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 p-6 rounded-xl border border-orange-500/30 hover:border-orange-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 active:scale-100 active:bg-orange-500/20 animate-[fadeInUp_0.6s_ease-out] group cursor-pointer"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex flex-col items-center text-center">
