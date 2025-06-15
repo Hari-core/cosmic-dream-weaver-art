@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -241,7 +242,12 @@ export default {
 				'subtle-wobble': {
 				  '0%, 100%': { transform: 'rotate(-2deg) scale(1.03)' },
 				  '50%': { transform: 'rotate(2deg) scale(0.97)' },
-				}
+				},
+        'gradient-pan': {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -261,6 +267,7 @@ export default {
 				'pulseFlow': 'pulseFlow 2s ease-in-out infinite',
 				'fadeInUp': 'fadeInUp 0.6s ease-out',
 				'subtle-wobble': 'subtle-wobble 5s ease-in-out infinite',
+        'gradient-pan': 'gradient-pan 3s ease-in-out infinite',
 			}
 		}
 	},
