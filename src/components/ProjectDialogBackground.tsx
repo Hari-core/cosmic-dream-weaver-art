@@ -1,7 +1,7 @@
 
 import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Points, PointMaterial } from '@react-three/drei'
+import { PointMaterial } from '@react-three/drei'
 import { useRef, useMemo } from 'react'
 
 const Particles = (props: any) => {
@@ -17,13 +17,23 @@ const Particles = (props: any) => {
   }, []);
 
   useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 15
-    ref.current.rotation.y -= delta / 20
+    if (ref.current) {
+      ref.current.rotation.x -= delta / 15
+      ref.current.rotation.y -= delta / 20
+    }
   })
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={points} stride={3} frustumCulled {...props}>
+      <points ref={ref} {...props}>
+        <bufferGeometry>
+          <bufferAttribute
+            attach="attributes-position"
+            count={points.length / 3}
+            array={points}
+            itemSize={3}
+          />
+        </bufferGeometry>
         <PointMaterial
           transparent
           color="#FFA500"
@@ -31,7 +41,7 @@ const Particles = (props: any) => {
           sizeAttenuation={true}
           depthWrite={false}
         />
-      </Points>
+      </points>
     </group>
   )
 }
