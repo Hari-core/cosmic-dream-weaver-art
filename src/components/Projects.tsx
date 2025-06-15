@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const projects = [
   {
@@ -118,35 +119,39 @@ export const Projects = () => {
                   </CardContent>
                 </Card>
               </DialogTrigger>
-              <DialogContent className="bg-[#0D0D0D] border-orange-500/30 text-white overflow-y-auto p-8 max-h-[90vh] sm:max-w-2xl">
-                <DialogHeader>
-                  <DialogTitle className="text-3xl text-orange-400 font-['Poppins'] mb-4">{project.title}</DialogTitle>
-                  <img src={project.image} alt={project.title} className="w-full rounded-lg border border-orange-500/30 aspect-video object-cover" />
-                  <DialogDescription className="text-gray-300 pt-6 text-base">
-                    {project.longDescription}
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="py-8">
-                  <h3 className="text-xl font-semibold text-orange-400 mb-4 font-['Poppins']">Technologies Used</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tools.map((tool, toolIndex) => (
-                      <Badge 
-                        key={toolIndex} 
-                        variant="secondary" 
-                        className="bg-orange-500/20 text-orange-300 border border-orange-500/30 text-sm"
-                      >
-                        {tool}
-                      </Badge>
-                    ))}
+              <DialogContent className="bg-[#0D0D0D] border-orange-500/30 text-white p-0 max-h-[90vh] sm:max-w-2xl">
+                <ScrollArea className="h-full rounded-lg">
+                  <div className="p-8">
+                    <DialogHeader>
+                      <DialogTitle className="text-3xl text-orange-400 font-['Poppins'] mb-4">{project.title}</DialogTitle>
+                      <img src={project.image} alt={project.title} className="w-full rounded-lg border border-orange-500/30 aspect-video object-cover" />
+                      <DialogDescription className="text-gray-300 pt-6 text-base">
+                        {project.longDescription}
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="py-8">
+                      <h3 className="text-xl font-semibold text-orange-400 mb-4 font-['Poppins']">Technologies Used</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tools.map((tool, toolIndex) => (
+                          <Badge 
+                            key={toolIndex} 
+                            variant="secondary" 
+                            className="bg-orange-500/20 text-orange-300 border border-orange-500/30 text-sm"
+                          >
+                            {tool}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="flex gap-4">
+                      <Button asChild className="bg-orange-500 hover:bg-orange-600 text-white font-bold w-full py-6 text-lg">
+                          <a href={project.github} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="mr-2 h-5 w-5" /> View on GitHub
+                          </a>
+                      </Button>
+                    </div>
                   </div>
-                </div>
-                <div className="flex gap-4">
-                  <Button asChild className="bg-orange-500 hover:bg-orange-600 text-white font-bold w-full py-6 text-lg">
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2 h-5 w-5" /> View on GitHub
-                      </a>
-                  </Button>
-                </div>
+                </ScrollArea>
               </DialogContent>
             </Dialog>
           ))}
