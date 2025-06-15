@@ -5,15 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ProjectDialogBackground } from "./ProjectDialogBackground";
+import { DotPatternBackground } from "./DotPatternBackground";
 
 const projects = [
   {
@@ -98,8 +98,8 @@ export const Projects = () => {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {projects.map((project, index) => (
-            <Sheet key={index}>
-              <SheetTrigger asChild>
+            <Dialog key={index}>
+              <DialogTrigger asChild>
                 <Card 
                   className={`bg-gray-900/50 border-orange-500/30 hover:border-orange-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 group cursor-pointer
                               ${index % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right'} 
@@ -133,18 +133,18 @@ export const Projects = () => {
                     </div>
                   </CardContent>
                 </Card>
-              </SheetTrigger>
-              <SheetContent side="right" className="bg-[#0D0D0D]/80 backdrop-blur-sm border-l-orange-500/30 text-white p-0 w-full sm:max-w-2xl">
-                {/* <ProjectDialogBackground /> */}
-                <ScrollArea className="h-full rounded-lg">
+              </DialogTrigger>
+              <DialogContent className="bg-[#0D0D0D]/80 backdrop-blur-sm border-orange-500/30 text-white p-0 sm:max-w-2xl relative overflow-hidden">
+                <DotPatternBackground />
+                <ScrollArea className="max-h-[85vh] rounded-lg relative z-10">
                   <div className="p-8">
-                    <SheetHeader>
-                      <SheetTitle className="text-3xl text-orange-400 font-['Poppins'] mb-4">{project.title}</SheetTitle>
+                    <DialogHeader>
+                      <DialogTitle className="text-3xl text-orange-400 font-['Poppins'] mb-4">{project.title}</DialogTitle>
                       <img src={project.image} alt={project.title} className="w-full rounded-lg border border-orange-500/30 aspect-video object-cover" />
-                      <SheetDescription className="text-gray-300 pt-6 text-base">
+                      <DialogDescription className="text-gray-300 pt-6 text-base">
                         {project.longDescription}
-                      </SheetDescription>
-                    </SheetHeader>
+                      </DialogDescription>
+                    </DialogHeader>
                     <div className="py-8">
                       <h3 className="text-xl font-semibold text-orange-400 mb-4 font-['Poppins']">Technologies Used</h3>
                       <div className="flex flex-wrap gap-2">
@@ -168,8 +168,8 @@ export const Projects = () => {
                     </div>
                   </div>
                 </ScrollArea>
-              </SheetContent>
-            </Sheet>
+              </DialogContent>
+            </Dialog>
           ))}
         </div>
       </div>
