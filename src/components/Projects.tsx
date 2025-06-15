@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import { ExternalLink, BarChart3, Cpu, Database, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -127,7 +128,7 @@ export const Projects = () => {
                 </Card>
               </DialogTrigger>
               <DialogContent className="bg-[#0D0D0D]/80 backdrop-blur-sm border-orange-500/30 text-white p-0 sm:max-w-2xl relative overflow-hidden">
-                <ProjectDialogBackground />
+                {/* <ProjectDialogBackground /> */}
                 <ScrollArea className="max-h-[85vh] rounded-lg relative z-10">
                   <div className="p-8">
                     <DialogHeader>
